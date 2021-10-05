@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300");
+
+
+@media only screen and (max-width: 991px) {
+
+	.table-btn {
+		height: 8vh;
+		width: 10vw;
+		border-radius: 50%;
+		margin-left: 5vw;
+		color: white;
+        font-family: 'Raleway', sans-serif;
+		font-weight: 200;
+		font-size: 14pt;
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	.table-btn:hover {
+		background: black;
+	}
+
+	.table-kepad {
+		margin-top: 1vh;
+		margin-bottom: 1vh;
+		margin-left: 5vw;
+	}
+
+	.powerButton {
+        margin-left: 5%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+
+	.start-btn {
+        height: 13vh;
+        width: 40vw;
+    }
+
+	.start-bg {
+        background:#ed4264;
+        font-weight: 700;
+        color: white;
+        font-size: 20pt;
+    }
+
+	.power-icon {
+        background: rgba(1, 0, 0, 0.2);
+        color: white;
+        margin-left: 10%;
+    }
+
+	.power-font {
+        height: 50vh;
+        width: 80vw;
+        color: black;
+    }
+
+}
