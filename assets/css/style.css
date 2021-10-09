@@ -9,9 +9,11 @@
 
 body {
     font-family: 'Raleway', sans-serif;
-    background: rgba(0, 0, 0, 0.7);
-    /* overflow-y: auto; */
     overflow-x: auto;
+    background-image: url("/assets/imgs/pexels-william-choquette-2641886.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .jumbotron {
@@ -27,12 +29,10 @@ body {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
-    /* margin-left: rem; */
 }
 
 .myBtns {
     display: flex;
-    /* padding-top: 20%; */
 }
 
 .right-btn {
@@ -49,15 +49,13 @@ body {
 .left-btn {
     width: 40vw;
     background: #a044ff;
-    /* overflow-y: auto;
-    max-height: 300px; */
     
 }
 
 .card {
     width: 31vw;
     height: 35vh;
-    margin-left: 2%;
+    /* margin-left: 2%; */
     overflow-y: auto;
     max-height: 300px;
 }
@@ -129,14 +127,19 @@ body {
 @media only screen and (max-width: 991px) {
     body {
         font-family: 'Raleway', sans-serif;
-        background: rgba(0, 0, 0, 0.7);
         /* overflow-y: auto; */
         overflow-x: auto;
+        background-image: url("/assets/imgs/pexels-william-choquette-2641886.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
     }
 
     .jumbotron {
         padding-top: 20px;
         margin-top: 0.5%;
+        background: url("assets/img/raw-food-2.jpeg");
+        object-fit: cover;
     }
 
     .jumbotron .row .second-button {
@@ -147,12 +150,10 @@ body {
         color: #fff;
         background-color: #007bff;
         border-color: #007bff;
-        /* margin-left: rem; */
     }
 
     .myBtns {
         display: flex;
-        /* padding-top: 20%; */
     }
 
     .right-btn {
@@ -223,7 +224,7 @@ body {
 
     .start-bg {
         background:#ed4264;
-        font-weight: 700;
+        font-weight: 800;
         color: white;
         font-size: 20pt;
     }
@@ -239,8 +240,8 @@ body {
     }
 
     .power-icon {
-        background: rgba(1, 0, 0, 0.2);
-        color: white;
+        background: #29ffc6;
+        color: black;
         margin-left: 10%;
     }
 }

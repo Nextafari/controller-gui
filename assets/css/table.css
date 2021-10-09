@@ -3,6 +3,30 @@
 
 @media only screen and (max-width: 991px) {
 
+	body {
+		color: white;
+	}
+
+	#body-img {
+		background-image: url("/assets/imgs/pexels-william-choquette-2641886.jpg");
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+		margin-bottom: 3vh;
+	}
+
+
+	/* Gives the picture an overlay color of some sort */
+	/* #body-img::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background: rgba(17, 17, 17, 0.7);
+  	} */
+
 	.table-btn {
 		height: 8vh;
 		width: 20vw;
@@ -28,17 +52,17 @@
 		display: flex;
 	} 
 	
-	.keypad-header-txt img {
+	.keypad-header-txt p {
 		margin-left: 5vw;
-		height: 18vh;
-		width: 23vw;
-		margin-right: 45vw;
-		overflow: hidden;
+		color: white;
 	}
 	
 	.keypad-header-img {
 		height: 15vh;
-		width: 23vw;
+		width: 18vw;
+		background: rgba(0, 0, 0, 0.7);
+		border-radius: 8%;
+		margin-left: 29vw;
 	}
 
 	.table-btn:hover {
@@ -64,13 +88,13 @@
 
 	.start-bg {
         background:#ed4264;
-        font-weight: 700;
+        font-weight: 800;
         color: white;
         font-size: 20pt;
     }
 
 	.power-icon {
-        background: rgba(1, 0, 0, 0.2);
+        background: #29ffc6;
         color: white;
         margin-left: 10%;
     }
@@ -79,6 +103,16 @@
         height: 50vh;
         width: 80vw;
         color: black;
+    }
+
+
+    .confirm-btn {
+        height: 13vh;
+        width: 40vw;
+		background: rgba(0.4, 0.6, 0.9, 0.8);
+		color: white;
+        margin-left: 33vw;
+		font-weight: 800;
     }
 
 }
