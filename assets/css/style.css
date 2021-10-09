@@ -206,6 +206,13 @@ body {
         background: rgba(153, 147, 147, 0.2);
     }
 
+    .mode-card {
+        background-image: url("/assets/imgs/gears.jpg");
+        background-size: cover;
+        color: white;
+        object-fit: cover;
+    }
+
     .card-menu {
         background-image: url("/assets/imgs/pexels-valeria-boltneva-842571.jpg");
         background-size: cover;
@@ -301,13 +308,12 @@ body {
 
     .mode-txt {
         text-align: center;
-        margin-top: -15vh;
     }
     
     /* Rounded sliders */
     .slider.round {
         border-radius: 34px;
-        margin-top: 10vh;
+        margin-top: 8vh;
         margin-left: 2.5vw;
     }
     
