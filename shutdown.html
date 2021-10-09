@@ -10,22 +10,25 @@
     <title>Robot Controller Frontend</title>
   </head>
   <body>
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-      <a class="navbar-brand" href="#">Order History</a>
+    <nav class="navbar navbar-light" style="background-color: #3498db;">
+      <a class="navbar-brand" href="#">食品注文履歴</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="shutdown.html">shutdown</a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link" href="tables.html">Tables</a>
           </li>
+          
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown link
@@ -39,6 +42,8 @@
         </ul>
       </div>
     </nav>
+
+    
     <div class="jumbotron">
       <h1 class="display-4">Hello, world!</h1>
       <p class="lead">
@@ -46,53 +51,51 @@
       </p>
       <hr class="my-4">
       <div class="myBtns">
-        <button class="btn btn-primary btn-lg lead left-btn">
+        <button class="btn btn-lg lead left-btn">
           <h4 class="btn-header">ABCD</h4>
           <span class="btn-txt btn-left-txt">Normal</span>
         </button>
-        <button class="btn btn-primary btn-lg lead right-btn">
+        <button class="btn btn-lg lead right-btn">
           <h4 class="btn-header">CBDA</h4>
           <span class="btn-txt btn-right-txt">Priority</span>
         </button>
       </div>
     </div>
     <div class="row">
-      <div class="card card-1">
+      <div class="card card-1 mode-card">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">
-            Some quick example text to build on the card title and 
-            make up the bulk of the card's content.
-          </p>
+          <div>
+            <label class="switch">
+              <input class="hide-checker" type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+
+        <p class="mode-txt">MODE</p>
+      </div>
+
+      <div class="card task-card">
+        <div class="card-body">
+          <a href=""><img class="task-img" src="assets/imgs/transparent-down-arrow.png" alt=""></a>
+          <p class="task-txt">ACTIVE <br> TASKS</p>
         </div>
       </div>
 
-      <div class="card">
+      <div class="card card-menu">
         <div class="card-body">
-          <p class="card-text">
-            <i class="icofont-rounded-down dropdown-btn"></i>
-          </p>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-          </p>
+          <h5 class="card-title">MENU</h5>
         </div>
       </div>
     </div>
 
+
     <div class="row powerButton">
-      <button class="btn btn-lg start-btn start-bg">
+      <button class="btn btn-lg start-btn stop-bg">
           STOP
       </button>
 
-      <button class="btn btn-lg start-btn power-icon">
+      <button class="btn btn-lg start-btn power-icon-start">
           <i class="icofont-power power-font"></i>
       </button>
     </div>

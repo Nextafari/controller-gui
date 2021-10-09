@@ -9,9 +9,18 @@
 
 body {
     font-family: 'Raleway', sans-serif;
-    background: rgba(0, 0, 0, 0.7);
-    /* overflow-y: auto; */
     overflow-x: auto;
+    background-image: url("/assets/imgs/pexels-william-choquette-2641886.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.display-4 {
+    font-size: 3.5rem;
+    font-weight: 450;
+    line-height: 1.2;
+    color: white;
 }
 
 .jumbotron {
@@ -27,37 +36,33 @@ body {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
-    /* margin-left: rem; */
 }
 
 .myBtns {
     display: flex;
-    /* padding-top: 20%; */
 }
 
 .right-btn {
     margin-left: 15%;
     overflow: hidden;
-    background: #a044ff;
+    background: #3498db;
     width: 40vw;
 }
 
 .right-btn:hover {
-    background: green;
+    background: #3498db;
 }
 
 .left-btn {
     width: 40vw;
-    background: #a044ff;
-    /* overflow-y: auto;
-    max-height: 300px; */
+    background: #3498db;
     
 }
 
 .card {
     width: 31vw;
     height: 35vh;
-    margin-left: 2%;
+    /* margin-left: 2%; */
     overflow-y: auto;
     max-height: 300px;
 }
@@ -129,48 +134,63 @@ body {
 @media only screen and (max-width: 991px) {
     body {
         font-family: 'Raleway', sans-serif;
-        background: rgba(0, 0, 0, 0.7);
-        /* overflow-y: auto; */
+        font-weight: 300;
         overflow-x: auto;
+        background-image: url("/assets/imgs/pexels-william-choquette-2641886.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .navbar-brand {
+        font-weight: 550;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        font-weight: 350;
+        color: white;
     }
 
     .jumbotron {
         padding-top: 20px;
         margin-top: 0.5%;
+        background: url("assets/img/raw-food-2.jpeg");
+        object-fit: cover;
     }
 
     .jumbotron .row .second-button {
         margin-left: 40rem !important;
     }
 
-    .btn-primary {
-        color: #fff;
-        background-color: #007bff;
-        border-color: #007bff;
-        /* margin-left: rem; */
+    .display-4 {
+        font-size: 3.5rem;
+        font-weight: 300;
+        line-height: 1.2;
+        color: white;
     }
 
     .myBtns {
         display: flex;
-        /* padding-top: 20%; */
     }
 
     .right-btn {
         margin-left: 15%;
         overflow: hidden;
-        background: #a044ff;
+        background: #3498db;
+        color: white;
         width: 40vw;
     }
 
     .right-btn:hover {
-        background: green;
+        background: #3498db;
     }
 
     .left-btn {
         width: 40vw;
-        background: #a044ff;
-        /* overflow-y: auto;
-        max-height: 300px; */
+        background: #3498db;
+        color: white;
+        max-height: 300px;
         
     }
     
@@ -182,8 +202,124 @@ body {
         max-height: 300px;
     }
 
+    .mode-card::before {
+        background: rgba(153, 147, 147, 0.2);
+    }
+
+    .mode-card {
+        background-image: url("/assets/imgs/gears.jpg");
+        background-size: cover;
+        color: white;
+        object-fit: cover;
+    }
+
+    .card-menu {
+        background-image: url("/assets/imgs/pexels-valeria-boltneva-842571.jpg");
+        background-size: cover;
+        object-fit: cover;
+    }
+
+    .card-menu::before {
+        content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+        background: rgba(153, 147, 147, 0.2);
+    }
+
+    .task-card::before {
+        content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+        background: rgba(153, 147, 147, 0.2);
+    }
+
+    .card-title {
+        color: rgb(252, 248, 248);
+        font-weight: 400;
+    }
+
+    .task-txt {
+        margin-left: 6.5vw;
+        font-weight: 400;
+    }
+
+    .task-img {
+        height: 10vh;
+        width: 15vw;
+        margin-top: 7vh;
+        margin-left: 4vw;
+    }
+
     .card-1 {
         margin-left: 4%;
+    }
+
+    
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 8vh; /*sets height of slider*/
+        width: 25vw; /*sets width of slider*/
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    .hide-checker {
+        display: none;
+    }
+    
+    input:checked + .slider {
+        background-color: #8dc26f;
+    }
+    
+    input:focus + .slider {
+        box-shadow: 0 0 1px #8dc26f;
+    }
+    
+    /* Sets the lenght of translation of the slider*/
+    input:checked + .slider:before {
+        -webkit-transform: translateX(19vw);
+        -ms-transform: translateX(19vw);
+        transform: translateX(19vw); 
+    }
+
+    .mode-txt {
+        text-align: center;
+    }
+    
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+        margin-top: 8vh;
+        margin-left: 2.5vw;
+    }
+    
+    .slider.round:before {
+        border-radius: 50%;
+        margin-bottom: 1vh;
     }
 
     .btn-header {
@@ -222,8 +358,15 @@ body {
     }
 
     .start-bg {
-        background:#ed4264;
-        font-weight: 700;
+        background:#8dc26f;
+        font-weight: 800;
+        color: white;
+        font-size: 20pt;
+    }
+
+    .stop-bg {
+        background: #ed4264;
+        font-weight: 800;
         color: white;
         font-size: 20pt;
     }
@@ -238,9 +381,15 @@ body {
         width: 40vw;
     }
 
-    .power-icon {
-        background: rgba(1, 0, 0, 0.2);
-        color: white;
+    .power-icon-start {
+        background: #cfdef3;
+        color: black;
+        margin-left: 10%;
+    }
+
+    .power-icon-stop {
+        background: #ed4264;
+        color: black;
         margin-left: 10%;
     }
 }
