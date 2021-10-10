@@ -31,7 +31,7 @@
 		height: 12vh;
 		width: 25vw;
 		border-radius: 10%;
-		margin-bottom: 3vh;
+		margin-bottom: 5vh;
 		margin-left: 3vw;
 		color: white;
         font-family: 'Raleway', sans-serif;
@@ -112,7 +112,6 @@
         width: 80vw;
         color: black;
     }
-
 
     .confirm-btn {
         height: 13vh;
