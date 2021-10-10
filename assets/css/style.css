@@ -17,7 +17,7 @@ body {
 }
 
 .display-4 {
-    font-size: 3.5rem;
+    font-size: 1.5rem;
     font-weight: 450;
     line-height: 1.2;
     color: white;
@@ -148,7 +148,7 @@ body {
 
     .lead {
         font-size: 1.25rem;
-        font-weight: 350;
+        font-weight: 550;
         color: white;
     }
 
@@ -164,8 +164,8 @@ body {
     }
 
     .display-4 {
-        font-size: 3.5rem;
-        font-weight: 300;
+        font-size: 2.0rem;
+        font-weight: 600;
         line-height: 1.2;
         color: white;
     }
@@ -202,6 +202,11 @@ body {
         max-height: 300px;
     }
 
+    .card-row {
+        margin-bottom: 12vh;
+        margin-top: 6vh;
+    }
+
     .mode-card::before {
         background: rgba(153, 147, 147, 0.2);
     }
@@ -219,7 +224,7 @@ body {
         object-fit: cover;
     }
 
-    .card-menu::before {
+    /* .card-menu::before {
         content: "";
 		position: absolute;
 		left: 0;
@@ -237,7 +242,7 @@ body {
 		top: 0;
 		bottom: 0;
         background: rgba(153, 147, 147, 0.2);
-    }
+    } */
 
     .card-title {
         color: rgb(252, 248, 248);
@@ -422,6 +427,7 @@ body {
         height: 20vh;
         width: 30vw;
         border-radius: 10%;
+        margin-top: 10vh;
         background: rgba(2, 21, 21, 1.9);
     }
 
@@ -429,5 +435,36 @@ body {
         height: 10vh;
         width: 15vw;
     }
+
+    .shutdown-btn {
+        display: grid;
+        margin-bottom: 10vh;
+        margin-top: 10vh;
+        margin-left: 33vh;
+    }
+
+    .main-shutdown {
+        margin-left: 30vw;
+        width: 45vw;
+        border-radius: 10%;
+        margin-bottom: 10vh;
+    }
+
+    .confirm-shutdown {
+        font-weight: 700;
+        color: white;
+        margin-left: -9%;
+        margin-bottom: 10vh;
+    }
+
+    /* .confirm-shutdown::before {
+        content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+        background: rgba(182, 80, 80, 0.2);
+    } */
 
 }
