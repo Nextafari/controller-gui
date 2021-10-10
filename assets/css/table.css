@@ -28,11 +28,11 @@
   	} */
 
 	.table-btn {
-		height: 8vh;
-		width: 20vw;
+		height: 12vh;
+		width: 25vw;
 		border-radius: 10%;
-		margin-bottom: 1.5vh;
-		margin-left: 2vw;
+		margin-bottom: 3vh;
+		margin-left: 3vw;
 		color: white;
         font-family: 'Raleway', sans-serif;
 		font-weight: 200;
@@ -62,7 +62,15 @@
 		width: 18vw;
 		background: rgba(0, 0, 0, 0.7);
 		border-radius: 8%;
-		margin-left: 29vw;
+		margin-left: 25vw;
+		margin-bottom: 7vh;
+	}
+
+	.keypad-header-img img {
+		height: 10vh;
+		width: 13vw;
+		margin-left: 2vw;
+		margin-top: 2.5vh;
 	}
 
 	.table-btn:hover {
@@ -122,6 +130,12 @@
 		border-radius: 8%;
 		margin-left: 30vw;
 		margin-bottom: 5vh;
+	}
+
+	.previous-sign img {
+		height: 8vh;
+		width: 13vw;
+		margin-top: 2vh;
 	}
 
 

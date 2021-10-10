@@ -306,8 +306,20 @@ body {
         transform: translateX(19vw); 
     }
 
+    .mode-card::before {
+        content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+        background: rgba(153, 147, 147, 0.2);
+    }
+
     .mode-txt {
         text-align: center;
+        font-weight: 550;
+        font-size: 18px;
     }
     
     /* Rounded sliders */
@@ -392,4 +404,30 @@ body {
         color: black;
         margin-left: 10%;
     }
+
+    /* Confirm Shutdown */
+    .cancel-btn {
+        height: 20vh;
+        width: 30vw;
+        border-radius: 10%;
+        background: rgba(2, 21, 21, 1.9);
+    }
+
+    .cancel-btn img {
+        height: 10vh;
+        width: 15vw;
+    }
+
+    .proceed-btn {
+        height: 20vh;
+        width: 30vw;
+        border-radius: 10%;
+        background: rgba(2, 21, 21, 1.9);
+    }
+
+    .proceed-btn img {
+        height: 10vh;
+        width: 15vw;
+    }
+
 }
