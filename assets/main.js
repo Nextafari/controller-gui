@@ -7,6 +7,7 @@ async function InsertTables(url, tableKeypad) {
         console.log(tableNumber.table_number)
         // creating a new button element
         const tableButton = document.createElement("button");
+        // Using already styled css class names to style buttons
         tableButton.className = "table-btn btn btn-md";
         // Creating a text for the button
         const btnNode = document.createTextNode("Table " + tableNumber.table_number);
