@@ -129,6 +129,7 @@ body {
     margin-left: 10%;
 }
 
+/* END */
 
 /* Media Query */
 @media only screen and (max-width: 991px) {
@@ -456,15 +457,5 @@ body {
         margin-left: -9%;
         margin-bottom: 10vh;
     }
-
-    /* .confirm-shutdown::before {
-        content: "";
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-        background: rgba(182, 80, 80, 0.2);
-    } */
 
 }
