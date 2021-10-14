@@ -5,22 +5,23 @@
 //     }
 // }
 
+// Saving the selected tables in an array
 function selectedTables() {
-    let button = document.querySelector(".table-keypad");
-    let btnValue = document.querySelector(".table-btn").attributes.value;
+    // An empty arry to save the values of the clicked tables
     let valueContainer = [];
-    button.addEventListener("click", function() {
-        valueContainer.push(btnValue);
+    // adding an event listener to pick up the clicks and save the tables clicked on
+    document.body.addEventListener("click", event=> {
+        if (event.target.nodeName == "BUTTON") {
+            valueContainer.push(event.target.textContent);
+            console.log("Clicked", event.target.textContent);
+        }
 
     console.log(valueContainer);
     });
-
-    console.log(btnValue);
 }
 
 
 async function InsertTables(url) {
-    // const myTable = tableKeypad.querySelector(".table-btn");
     const response = await fetch(url);
     const data = await response.json();
     // Looping through data from the endpoint
@@ -39,11 +40,9 @@ async function InsertTables(url) {
         element.appendChild(tableButton).setAttribute('value', tableNumber.table_number);
         
     }
+    selectedTables()
 
     console.log(data);
 }
 
 InsertTables("http://127.0.0.1:8000/restautant_api/all_tables/");
-
-
-
