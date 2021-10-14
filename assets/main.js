@@ -14,9 +14,9 @@ function selectedTables() {
         if (event.target.nodeName == "BUTTON") {
             valueContainer.push(event.target.textContent);
             console.log("Clicked", event.target.textContent);
-        }
 
-    console.log(valueContainer);
+            console.log(valueContainer);
+        }
     });
 }
 
