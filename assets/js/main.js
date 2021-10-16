@@ -35,19 +35,45 @@ function getCookie(cname) {
 function selectedTables() {
     // An empty arry to save the values of the clicked tables
     let valueContainer = [];
+    
     // adding an event listener to the pick up the clicks and save the tables clicked on
     document.body.addEventListener("click", event=> {
         if (event.target.nodeName == "BUTTON") {
+            // saves the user's selection for every click in the empty array
             valueContainer.push(event.target.textContent);
-            
+
+            // Using the set cookie function to create a cookie
             setCookies("selected Tables", valueContainer, 1);
-            let getBrowserCookie = getCookie("selected Tables");
-            // check if cookie exists and if user has clicked to move to the next page, display tables stored in cookie
-            // in a new page for user to confirm their selection
-            console.log(document.cookie);
+        
+            
             console.log(valueContainer);
         }
     });
+}
+
+
+// Sends the selected tables to the next page
+function sendTableNextPage() {
+    let getBrowserCookie = getCookie("selected Tables");
+    const cookieArray = getBrowserCookie.split(",")
+    for (let i = 0; i < cookieArray.length; i++) {
+        
+        // Creating the button element (Parent Node)
+        const tableButton = document.createElement("button");
+
+        // Using already styled css classes to style buttons
+        tableButton.classList = "table-btn btn btn-md";
+
+        // Creating a text for the button from what we have in the cookie
+        const btnNode = document.createTextNode(cookieArray[i]);
+
+        // Appending the text to the child note of the button
+        tableButton.appendChild(btnNode);
+
+        // Appending the button to the DOM and also assigning values to them
+        const element = document.querySelector(".confirm-table-keypad");
+        element.appendChild(tableButton);
+    }
 }
 
 
