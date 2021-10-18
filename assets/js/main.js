@@ -5,6 +5,7 @@
 //     }
 // }
 
+
 // Function to set cookies to store tables that were selected by the user
 function setCookies(cname, cvalue, exprdays) {
     const d = new Date();
@@ -31,6 +32,12 @@ function getCookie(cname) {
 }
 
 
+// Function that changes the color of the button when selected
+function changeButtonColor(_this) {
+    _this.style.backgroundColor = "blue";
+}
+
+
 // Saving the selected tables in an array
 function selectedTables() {
     // An empty arry to save the values of the clicked tables
@@ -42,6 +49,9 @@ function selectedTables() {
             // saves the user's selection for every click in the empty array
             valueContainer.push(event.target.textContent);
 
+            // Calling the function to change the color of the button that is clicked based on the event
+            changeButtonColor(event.target);
+            
             // Using the set cookie function to create a cookie
             setCookies("selected Tables", valueContainer, 1);
         
@@ -93,11 +103,11 @@ async function InsertTables(url) {
         tableButton.classList = "table-btn btn btn-md";
 
         // Creating a text for the button
-        const btnNode = document.createTextNode("テーブル " + tableNumber.table_number);
+        const btnNode = document.createTextNode("TABLE " + tableNumber.table_number);
 
         // Appending the text to the button
         tableButton.appendChild(btnNode);
-        
+
         // Appending the button to the DOM and also assigning values to them
         const element = document.querySelector(".table-keypad");
         element.appendChild(tableButton).setAttribute('value', tableNumber.table_number);
