@@ -38,13 +38,18 @@ function changeButtonColor(_this) {
 }
 
 
-// Prevernt multiple clicks
+// Prevernts user from selecting a table multiple times
 function stopMultipleTableSelection(_this) {
-    let alreadyInCookie = document.cookie;
+    let alreadyInCookie = getCookie("selected Tables");
+    let cookieValue = alreadyInCookie.split(",");
 
-    if (_this.textContent == ) {
-
+    for (let i = 0; i < cookieValue.length; i++) {
+        if (_this.textContent === cookieValue[i]) {
+            // Disables the button clicked by a user
+            _this.disabled = true;
+        }
     }
+
 }
 
 
@@ -65,7 +70,11 @@ function selectedTables() {
             // Using the set cookie function to create a cookie
             setCookies("selected Tables", valueContainer, 1);
             
+            // Disables the button to avoid multiple clicks from the user
+            stopMultipleTableSelection(event.target);
+
             console.log(valueContainer);
+
         }
     });
 }
