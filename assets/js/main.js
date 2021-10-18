@@ -6,7 +6,7 @@
 // }
 
 
-// Function to set cookies to store tables that were selected by the user
+// Set cookies to store tables that were selected by the user
 function setCookies(cname, cvalue, exprdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exprdays*24*60*60*1000));
@@ -32,9 +32,19 @@ function getCookie(cname) {
 }
 
 
-// Function that changes the color of the button when selected
+// Changes the color of the button when selected
 function changeButtonColor(_this) {
-    _this.style.backgroundColor = "blue";
+    _this.style.backgroundColor = "#8dc26f";
+}
+
+
+// Prevernt multiple clicks
+function stopMultipleTableSelection(_this) {
+    let alreadyInCookie = document.cookie;
+
+    if (_this.textContent == ) {
+
+    }
 }
 
 
@@ -54,7 +64,6 @@ function selectedTables() {
             
             // Using the set cookie function to create a cookie
             setCookies("selected Tables", valueContainer, 1);
-        
             
             console.log(valueContainer);
         }
@@ -62,7 +71,7 @@ function selectedTables() {
 }
 
 
-// Sends the selected tables to the next page
+// Creates html elements for the selected tables on the next page
 function sendTableNextPage() {
     let getBrowserCookie = getCookie("selected Tables");
     const cookieArray = getBrowserCookie.split(",")
@@ -87,6 +96,7 @@ function sendTableNextPage() {
 }
 
 
+// Using async function to fetch tables from the backend and display them on the frontend
 async function InsertTables(url) {
     const response = await fetch(url);
 
