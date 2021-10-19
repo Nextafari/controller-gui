@@ -38,7 +38,7 @@ function changeButtonColor(_this) {
 }
 
 
-// Prevernts user from selecting a table multiple times
+// Prevents user from selecting a table multiple times
 function stopMultipleTableSelection(_this) {
     let alreadyInCookie = getCookie("selected Tables");
     let cookieValue = alreadyInCookie.split(",");
@@ -56,7 +56,7 @@ function stopMultipleTableSelection(_this) {
 // Saving the selected tables in an array
 function selectedTables() {
     // An empty arry to save the values of the clicked tables
-    let valueContainer = [];
+    const valueContainer = [];
     
     // adding an event listener to the pick up the clicks and save the tables clicked on
     document.body.addEventListener("click", event=> {

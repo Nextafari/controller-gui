@@ -57,7 +57,7 @@
 		width: 18vw;
 		background: rgba(0, 0, 0, 0.7);
 		border-radius: 8%;
-		margin-left: 25vw;
+		margin-left: 10vw;
 		margin-bottom: 7vh;
 	}
 
@@ -136,5 +136,20 @@
 		height: 8vh;
 		width: 13vw;
 		margin-top: 2vh;
+	}
+
+	.refresh-btn {
+		height: 15vh;
+		width: 18vw;
+		background: rgba(0, 0, 0, 0.7);
+		border-radius: 8%;
+		margin-left: 3vw;
+		margin-bottom: 7vh;
+	}
+
+	.refresh-btn img {
+		height: 9vh;
+		width: 10vw;
+		margin-top: 2.5vh;
 	}
 }
