@@ -121,6 +121,7 @@ body {
 .power-font {
     height: 30vh;
     width: 40vw;
+    font-size: 30px;
 }
 
 .power-icon {
@@ -132,7 +133,7 @@ body {
 /* END */
 
 /* Media Query */
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1080px) {
     body {
         font-family: 'Raleway', sans-serif;
         font-weight: 300;
@@ -156,7 +157,7 @@ body {
     .jumbotron {
         padding-top: 20px;
         margin-top: 0.5%;
-        background: url("assets/img/raw-food-2.jpeg");
+        background: rgba(1, 0, 0, 0);
         object-fit: cover;
     }
 
@@ -397,6 +398,7 @@ body {
     .power-font {
         height: 30vh;
         width: 40vw;
+        font-size: 30px;
     }
 
     .power-icon-start {
@@ -441,7 +443,7 @@ body {
         display: grid;
         margin-bottom: 10vh;
         margin-top: 10vh;
-        margin-left: 33vh;
+        margin-left: 37.5vh;
     }
 
     .main-shutdown {

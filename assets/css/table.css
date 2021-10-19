@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300");
 
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 1080px) {
 
 	body {
 		color: white;
@@ -112,6 +112,7 @@
         height: 50vh;
         width: 80vw;
         color: black;
+		font-size: 30px;
     }
 
     .confirm-btn {
@@ -147,10 +148,12 @@
 		margin-bottom: 7vh;
 	}
 
-	.refresh-btn img {
-		height: 9vh;
-		width: 10vw;
+	.refresh-btn i {
+		height: 15vh;
+		width: 15vw;
 		margin-top: 2.5vh;
-		background: rgba(179, 179, 180, 0.7);
+		font-weight: 900;
+		font-size: 48px;
+		color: whitesmoke;
 	}
 }
