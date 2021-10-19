@@ -138,3 +138,32 @@ async function InsertTables(url) {
 }
 
 InsertTables("http://127.0.0.1:8000/restautant_api/all_tables/");
+
+
+// Sends the confirmed tables to robot via backend
+function confirmTable() {
+    const data = getCookie("selected Tables")
+    const tableData = JSON.stringify(data)
+    
+    // Send the user's input to the endpoint
+    fetch(
+        `http://127.0.0.1:8000/ros_api/send_table`, {
+            method: "POST",
+            body: tableData,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+    ).then(response => {
+        if (!response.ok) {
+            return response.json();
+        }
+    })
+
+    // Deletes the cookie saved in the browser
+    document.cookie = "selected Tables=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+    // refresh the browser afterwards
+    document.location.reload();
+
+}
