@@ -160,7 +160,7 @@ function confirmTable() {
         }
     })
 
-    // Deletes the cookie saved in the browser by expiring it
+// Deletes the cookie saved in the browser by expiring it
     document.cookie = "selected Tables=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
     // refresh the browser afterwards
