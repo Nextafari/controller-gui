@@ -142,17 +142,11 @@ InsertTables("http://127.0.0.1:8000/restautant_api/all_tables/");
 
 // Removes any stray dynamic button on the confirmation page
 function lockUp() {
-    let getBrowserCookie = getCookie("selected Tables");
-    const cookieArray = getBrowserCookie.split(",")
+    // Removing any button element on the DOM with a time interval
+    let remvElement = document.querySelector(".table-btn");
+    remvElement.remove()
 
-    // Looping through the cookies
-    for (let i = 0; i < cookieArray.length; i++) {
-
-        let remvElement = document.querySelector(".table-btn");
-        remvElement.remove()
-    }
-
-    setTimeout(lockUp, 2000);
+    setTimeout(lockUp, 50);
 }
 
 // Sends the confirmed tables to robot via backend
@@ -175,9 +169,8 @@ function confirmTable() {
         }
     })
 
-    // Hides buttons from after being sent to the backend
-    window.onload = lockUp();
-    // lockUp();
+    // Removes button from DOM after being sent to the backend
+    lockUp();
 
     // Deletes the cookie saved in the browser by expiring it
     document.cookie = "selected Tables=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
