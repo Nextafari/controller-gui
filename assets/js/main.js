@@ -34,7 +34,7 @@ function getCookie(cname) {
 
 // Changes the color of the button when selected
 function changeButtonColor(_this) {
-    _this.style.backgroundColor = "#8dc26f";
+    _this.style.backgroundColor = "#1f9646";
 }
 
 
