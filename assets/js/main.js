@@ -150,8 +150,6 @@ function lockUp() {
 
         let remvElement = document.querySelector(".table-btn");
         remvElement.remove()
-
-        console.log("I ran ");
     }
 
     setTimeout(lockUp, 2000);
