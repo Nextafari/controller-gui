@@ -38,7 +38,7 @@ function changeButtonColor(_this) {
 }
 
 
-// Prevernts user from selecting a table multiple times
+// Prevents user from selecting a table multiple times
 function stopMultipleTableSelection(_this) {
     let alreadyInCookie = getCookie("selected Tables");
     let cookieValue = alreadyInCookie.split(",");
@@ -56,7 +56,7 @@ function stopMultipleTableSelection(_this) {
 // Saving the selected tables in an array
 function selectedTables() {
     // An empty arry to save the values of the clicked tables
-    let valueContainer = [];
+    const valueContainer = [];
     
     // adding an event listener to the pick up the clicks and save the tables clicked on
     document.body.addEventListener("click", event=> {
@@ -138,3 +138,41 @@ async function InsertTables(url) {
 }
 
 InsertTables("http://127.0.0.1:8000/restautant_api/all_tables/");
+
+
+// Removes any stray dynamic button on the confirmation page
+function lockUp() {
+    // Removing any button element on the DOM with a time interval
+    let remvElement = document.querySelector(".table-btn");
+    remvElement.remove()
+
+    setTimeout(lockUp, 50);
+}
+
+// Sends the confirmed tables to robot via backend
+function confirmTable() {
+    const data = getCookie("selected Tables")
+    const tableData = JSON.stringify(data)
+    
+    // Send the user's input to the endpoint
+    fetch(
+        `http://127.0.0.1:8000/ros_api/send_table`, {
+            method: "POST",
+            body: tableData,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+    ).then(response => {
+        if (!response.ok) {
+            return response.json();
+        }
+    })
+
+    // Removes button from DOM after being sent to the backend
+    lockUp();
+
+    // Deletes the cookie saved in the browser by expiring it
+    document.cookie = "selected Tables=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+}
