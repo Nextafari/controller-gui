@@ -3,7 +3,7 @@ function turnOff() {
     let proceedToShutDown = document.getElementById("proceed-btn").value;
 
     fetch(
-        `http://127.0.0.1:8000/ros_api/shutdown`, {
+    `http://127.0.0.1:8000/ros_api/shutdown`, {
             method: "POST",
             body: JSON.stringify(proceedToShutDown),
             headers: {
