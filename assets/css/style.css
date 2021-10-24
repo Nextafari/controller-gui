@@ -193,7 +193,11 @@ body {
         background: #3498db;
         color: white;
         max-height: 300px;
-        
+
+    }
+
+    .left-btn span a {
+        color: white;
     }
     
     .card {
