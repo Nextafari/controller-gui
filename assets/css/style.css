@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 
 .jumbotron {
@@ -8,7 +9,7 @@
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: Poppins, sans-serif;
     overflow-x: auto;
     background-image: url("/assets/imgs/pexels-william-choquette-2641886.jpg");
     background-repeat: no-repeat;
@@ -133,7 +134,7 @@ body {
 /* END */
 
 /* Media Query */
-@media only screen and (max-width: 1080px) {
+@media only screen and (min-width: 441px) {
     body {
         font-family: 'Raleway', sans-serif;
         font-weight: 300;
