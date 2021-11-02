@@ -36,7 +36,7 @@ function startRobot() {
     })
 }
 
-
+// Stops and starts the robot's movement
 function startAndStopMovement() {
     let onBtn = document.getElementById("start-btn");
 
@@ -53,11 +53,10 @@ function startAndStopMovement() {
             btnToChange.textContent = "STOP";
             modalContent.textContent = "Robot has been stopped! \n Push START to continue."
             onBtn.style.background = "#ed4264";
-            console.log("Hey 2");
         }else {
             let modalContent = document.getElementById("shutdown-modalBody");
             btnToChange.textContent = "START";
-            modalContent.textContent = "Robot has started! \n Push STOP to stop Robot."
+            modalContent.textContent = "Robot has started! \n Push STOP to discontinue Robot movement."
             onBtn.style.background = "#8dc26f";
         }
     });
