@@ -21,18 +21,26 @@
             </a>
         </button>
 
-        <button class="btn proceed-btn" id="proceed-btn" value="Shut Down" onclick="turnOff()">
-            <a href="">
-                <img src="assets/imgs/okay_tick.svg" alt="">
-            </a>
+        <button data-toggle="modal" data-target="#exampleModal" class="btn proceed-btn" id="proceed-btn" value="Shut Down" onclick="turnOff()">
+            <img src="assets/imgs/okay_tick.svg" alt="okay">
         </button>
     </div>
 
-    <!-- <div>
-        <button class="btn btn-lg start-btn stop-bg main-shutdown">
-            SHUTDOWN <i class="icofont-power power-font"></i>
-        </button>
-    </div> -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="shutdown-modal-body">
+              <p>
+                Robot Turned off!!! <br> 
+                See you again. <i class="icofont-simple-smile" style="background: ffb703;"></i> <br><br>
+
+                Please, turn off the Tablet.
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
 
     <script src="assets/js/powerJS.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

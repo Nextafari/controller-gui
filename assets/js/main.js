@@ -176,5 +176,5 @@ function confirmTable() {
     document.cookie = "selected Tables=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
     // using an anon func to redirect users back to index.html after 3500 mili secs
-    setTimeout(()=> {window.location.replace("index.html");}, 3500)
+    setTimeout(()=> {window.location.replace("index.html");}, 3500);
 }

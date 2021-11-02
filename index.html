@@ -81,15 +81,26 @@
     </div>
 
     <div class="row powerButton" id="power-section">
-        <button class="btn btn-lg start-btn" id="start-btn">
-          START
-        </button>
+      <button class="btn btn-lg start-btn" id="start-btn" data-toggle="modal" data-target="#exampleModal">
+        START
+      </button>
 
-        <a href="confirm-shutdown.html">
-          <button class="btn btn-lg start-btn power-icon-start" value="Turn On" onclick="startRobot()">
-            <i class="icofont-power power-font"></i>
-          </button>
-        </a>
+      <a href="confirm-shutdown.html">
+        <button class="btn btn-lg start-btn power-icon-start" value="Turn On" onclick="startRobot()">
+          <i class="icofont-power power-font"></i>
+        </button>
+      </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body" id="shutdown-modalBody">
+           <!-- Will be inserted dynamically -->
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="assets/js/powerJS.js"></script>
