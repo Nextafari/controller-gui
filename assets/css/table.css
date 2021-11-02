@@ -1,10 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (min-width: 441px) {
 
 	body {
 		color: white;
+		font-family: Poppins;
 	}
 
 	#body-img {
@@ -155,5 +157,32 @@
 		font-weight: 900;
 		font-size: 48px;
 		color: whitesmoke;
+	}
+
+	.modal-content {
+		height: 30vh;
+		background: rgba(0, 0, 0, 1);
+		color: white;
+	}
+
+	.modal {
+		height: 100vh;
+		width: 80vw;
+		margin-top: 25vh;
+		margin-left: 10vw;
+	}
+
+	.modal-body {
+		justify-content: center;
+		margin-top: 7vh;
+		margin-left: 13vw;
+		font-weight: 500;
+	}
+
+	.modal-body i {
+		font-weight: 800;
+		color: #ffb703;
+		font-size: 3rem;
+		margin-left: 5vw;
 	}
 }

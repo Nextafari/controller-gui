@@ -58,22 +58,36 @@
         </div>
 
         <div>
-            <button class="btn btn-lg confirm-btn" onclick="confirmTable(); alert('Send Tables now!');">
+            <button class="btn btn-lg confirm-btn" data-toggle="modal" data-target="#exampleModal" onclick="confirmTable()">
                 CONFIRM
             </button>
         </div>
     </div>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Table requests received!!! <br>
+                    Robot going to deliver <i class="icofont-simple-smile" style="background: ffb703;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <div class="row powerButton">
-        <a href="confirm-shutdown.html">
-            <button class="btn btn-lg start-btn start-bg">
+    <div class="row powerButton" id="power-section">
+        <a href="index.html">
+            <button class="btn btn-lg start-btn start-bg" id="start-btn">
                 STOP
             </button>
         </a>
   
-        <button class="btn btn-lg start-btn power-icon">
-            <i class="icofont-power power-font"></i>
-        </button>
+        <a href="confirm-shutdown.html">
+            <button class="btn btn-lg start-btn power-icon" value="Turn On" onclick="startRobot()">
+                <i class="icofont-power power-font"></i>
+            </button>
+        </a>
     </div>
 
     <script src="assets/js/main.js"></script>
