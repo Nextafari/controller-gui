@@ -379,21 +379,22 @@ body {
     .start-btn {
         height: 13vh;
         width: 40vw;
+        background:#ed4264;
     }
 
-    .start-bg {
+    /* .start-bg {
         background:#8dc26f;
         font-weight: 800;
         color: white;
         font-size: 20pt;
-    }
+    } */
 
-    .stop-bg {
+    /* .stop-bg {
         background: #ed4264;
         font-weight: 800;
         color: white;
         font-size: 20pt;
-    }
+    } */
 
     .dropdown-btn {
         height: 60%;
