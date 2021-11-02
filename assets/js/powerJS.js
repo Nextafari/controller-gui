@@ -36,7 +36,6 @@ function startRobot() {
 
 function startAndStopMovement() {
     let onBtn = document.getElementById("start-btn");
-    // onBtn.style.background = "#8dc26f";
 
 
     onBtn.addEventListener("click", ()=> {
