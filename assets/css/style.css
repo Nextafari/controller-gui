@@ -261,7 +261,7 @@ body {
     }
 
     .task-txt {
-        margin-left: 6.5vw;
+        margin-left: 9vw;
         font-weight: 400;
     }
 
@@ -452,8 +452,8 @@ body {
     .shutdown-btn {
         display: grid;
         margin-bottom: 10vh;
-        margin-top: 10vh;
-        margin-left: 30.5vh;
+        margin-top: 13vh;
+        margin-left: 34%;
     }
 
     .main-shutdown {
@@ -496,6 +496,10 @@ body {
 		/* margin-left: 18vw; */
 		font-weight: 500;
 	}
+
+    .shutdown-modal-body p {
+        margin-left: 15vw;
+    }
 
 	.modal-body i, .shutdown-modal-body i {
 		font-weight: 800;
