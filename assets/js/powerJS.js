@@ -48,15 +48,41 @@ function startAndStopMovement() {
         // Getting the position of the child node to target
         let btnToChange = powerSection.childNodes[1];
 
+        // Checks to confirm if the state of the button text content is at stop and set to start
         if (btnToChange.textContent != "START") {
             let modalContent = document.getElementById("shutdown-modalBody");
             btnToChange.textContent = "START";
+
+            // Sending data to the backend to start up the robot
+            fetch(
+                `http://127.0.0.1:8000/ros_api/turn_on`, {
+                    method: "POST",
+                    body: JSON.stringify("STOP"),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }
+            ).then(response=> {
+                return response.json();
+            });
             modalContent.textContent = "Robot has stopped! \n Push START to continue."
             modalContent.style.marginLeft = "7vw";
             onBtn.style.background = "#8dc26f";
         }else {
             let modalContent = document.getElementById("shutdown-modalBody");
             btnToChange.textContent = "STOP";
+            // Sending data to the backend to stop the robot
+            fetch(
+                `http://127.0.0.1:8000/ros_api/turn_on`, {
+                    method: "POST",
+                    body: JSON.stringify("START"),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }
+            ).then(response=> {
+                return response.json();
+            });
             modalContent.textContent = "Robot has started! \n Push STOP to discontinue Robot movement."
             onBtn.style.background = "#ed4264";
         }
