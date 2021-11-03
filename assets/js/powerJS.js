@@ -71,6 +71,7 @@ function startAndStopMovement() {
         }else {
             let modalContent = document.getElementById("shutdown-modalBody");
             btnToChange.textContent = "STOP";
+            
             // Sending data to the backend to stop the robot
             fetch(
                 `http://127.0.0.1:8000/ros_api/turn_on`, {
