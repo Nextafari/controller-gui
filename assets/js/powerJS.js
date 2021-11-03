@@ -48,16 +48,17 @@ function startAndStopMovement() {
         // Getting the position of the child node to target
         let btnToChange = powerSection.childNodes[1];
 
-        if (btnToChange.textContent == "START") {
-            let modalContent = document.getElementById("shutdown-modalBody");
-            btnToChange.textContent = "STOP";
-            modalContent.textContent = "Robot has been stopped! \n Push START to continue."
-            onBtn.style.background = "#ed4264";
-        }else {
+        if (btnToChange.textContent != "START") {
             let modalContent = document.getElementById("shutdown-modalBody");
             btnToChange.textContent = "START";
-            modalContent.textContent = "Robot has started! \n Push STOP to discontinue Robot movement."
+            modalContent.textContent = "Robot has stopped! \n Push START to continue."
+            modalContent.style.marginLeft = "7vw";
             onBtn.style.background = "#8dc26f";
+        }else {
+            let modalContent = document.getElementById("shutdown-modalBody");
+            btnToChange.textContent = "STOP";
+            modalContent.textContent = "Robot has started! \n Push STOP to discontinue Robot movement."
+            onBtn.style.background = "#ed4264";
         }
     });
 }
