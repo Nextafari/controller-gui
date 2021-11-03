@@ -105,6 +105,10 @@ body {
 .start-btn {
     height: 13vh;
     width: 40vw;
+    margin-right: 5%;
+    font-weight: 800;
+    color: white;
+    font-size: 20pt;
 }
 
 .start-bg {
@@ -449,7 +453,7 @@ body {
         display: grid;
         margin-bottom: 10vh;
         margin-top: 10vh;
-        margin-left: 37.5vh;
+        margin-left: 30.5vh;
     }
 
     .main-shutdown {
@@ -465,5 +469,39 @@ body {
         margin-left: -9%;
         margin-bottom: 10vh;
     }
+
+    .modal-content {
+		height: 30vh;
+		background: rgba(0, 0, 0, 1);
+		color: white;
+	}
+
+	.modal {
+		height: 100vh;
+		width: 80vw;
+		margin-top: 25vh;
+		margin-left: 10vw;
+	}
+
+	.modal-body {
+		justify-content: center;
+		margin-top: 7vh;
+		margin-left: 13vw;
+		font-weight: 500;
+	}
+
+    .shutdown-modal-body {
+		justify-content: center;
+		margin-top: 4vh;
+		/* margin-left: 18vw; */
+		font-weight: 500;
+	}
+
+	.modal-body i, .shutdown-modal-body i {
+		font-weight: 800;
+		color: #ffb703;
+		font-size: 3rem;
+		margin-left: 5vw;
+	}
 
 }

@@ -13,6 +13,9 @@ function turnOff() {
     ).then(response=> {
         return response.json();
     })
+
+    // using an anon func to redirect users back to index.html after 3300 mili secs
+    setTimeout(()=> {window.location.replace("index.html");}, 3300);
 }
 
 
@@ -33,25 +36,29 @@ function startRobot() {
     })
 }
 
-
+// Stops and starts the robot's movement
 function startAndStopMovement() {
     let onBtn = document.getElementById("start-btn");
 
-
+    // Event listener to change button color and text
     onBtn.addEventListener("click", ()=> {
-        console.log("Hey 1");
+        // Getting the parent node which is the div housind the button
         let powerSection = document.getElementById("power-section");
 
         // Getting the position of the child node to target
         let btnToChange = powerSection.childNodes[1];
 
-        if (btnToChange.textContent == "START") {
-            btnToChange.textContent = "STOP";
-            onBtn.style.background = "#ed4264";
-            console.log("Hey 2");
-        }else {
+        if (btnToChange.textContent != "START") {
+            let modalContent = document.getElementById("shutdown-modalBody");
             btnToChange.textContent = "START";
+            modalContent.textContent = "Robot has stopped! \n Push START to continue."
+            modalContent.style.marginLeft = "7vw";
             onBtn.style.background = "#8dc26f";
+        }else {
+            let modalContent = document.getElementById("shutdown-modalBody");
+            btnToChange.textContent = "STOP";
+            modalContent.textContent = "Robot has started! \n Push STOP to discontinue Robot movement."
+            onBtn.style.background = "#ed4264";
         }
     });
 }
