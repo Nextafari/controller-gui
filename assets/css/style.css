@@ -106,6 +106,9 @@ body {
     height: 13vh;
     width: 40vw;
     margin-right: 5%;
+    font-weight: 800;
+    color: white;
+    font-size: 20pt;
 }
 
 .start-bg {
