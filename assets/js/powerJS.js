@@ -20,21 +20,21 @@ function turnOff() {
 
 
 // Turns the robot on by sending a message to it via the backend
-function startRobot() {
-    let turnOnBtn = document.querySelector(".start-btn").value;
-    console.log("This is the turn on butn", turnOnBtn);
-    fetch(
-        `http://127.0.0.1:8000/ros_api/turn_on`, {
-            method: "POST",
-            body: JSON.stringify(proceedToShutDown),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }
-    ).then(response=> {
-        return response.json();
-    })
-}
+// function startRobot() {
+//     let turnOnBtn = document.querySelector(".start-btn").value;
+//     console.log("This is the turn on butn", turnOnBtn);
+//     fetch(
+//         `http://127.0.0.1:8000/ros_api/turn_on`, {
+//             method: "POST",
+//             body: JSON.stringify(proceedToShutDown),
+//             headers: {
+//                 "Content-Type": "application/json"
+//             }
+//         }
+//     ).then(response=> {
+//         return response.json();
+//     })
+// }
 
 // Stops and starts the robot's movement
 function startAndStopMovement() {
@@ -52,6 +52,9 @@ function startAndStopMovement() {
         if (btnToChange.textContent != "START") {
             let modalContent = document.getElementById("shutdown-modalBody");
             btnToChange.textContent = "START";
+
+            // Saving the state of the button in the session
+            sessionStorage.setItem("button", btnToChange.textContent);
 
             // Sending data to the backend to start up the robot
             fetch(
@@ -71,6 +74,9 @@ function startAndStopMovement() {
         }else {
             let modalContent = document.getElementById("shutdown-modalBody");
             btnToChange.textContent = "STOP";
+
+            // Saving the state of the button in the session
+            sessionStorage.setItem("button", btnToChange.textContent);
             
             // Sending data to the backend to stop the robot
             fetch(
@@ -91,3 +97,28 @@ function startAndStopMovement() {
 }
 
 startAndStopMovement()
+
+
+// Save the content of the button using session storage
+// retrieve and add across pages
+function stopButtonStatus() {
+    // Retrieve stored button from session
+    let storedBtn = sessionStorage.getItem("button");
+
+    // buttons to change
+    let confirmTableBtn = document.querySelector(".btn-state");
+    confirmTableBtn.textContent = storedBtn;
+
+    // change button colors
+    if (confirmTableBtn.textContent === "START") {
+        confirmTableBtn.style.background = "#8dc26f";
+        console.log("I have changed to green");
+    }else {
+        confirmTableBtn.style.background = "#ed4264";
+        console.log("I have changed to red");
+    }
+
+    console.log("I am the child nodes", confirmTableBtn.textContent);
+}
+
+stopButtonStatus()
