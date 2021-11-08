@@ -261,7 +261,7 @@ body {
     }
 
     .task-txt {
-        margin-left: 9vw;
+        margin-left: 9.5vw;
         font-weight: 400;
     }
 
@@ -269,7 +269,7 @@ body {
         height: 10vh;
         width: 15vw;
         margin-top: 7vh;
-        margin-left: 4vw;
+        margin-left: 5.5vw;
     }
 
     .card-1 {
@@ -508,4 +508,44 @@ body {
 		margin-left: 5vw;
 	}
 
+    #new-index {
+        background: url("/assets/imgs/robot-in-kitchen.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: fixed;
+    }
+
+    .modal .modal-dialog .modal-content .newModal-body {
+        margin-left: 3vw;
+    }
+
+    .modal .modal-dialog .modal-content .newModal-body h2 {
+        padding-top: 6%;
+    }
+
+    .modal .modal-dialog .modal-content .newModal-body h4 {
+        margin-left: 3%;
+    }
+
+    .newModal-body {
+        justify-content: center;
+        margin-top: 15vh;
+        font-weight: 500;
+    }
+
+    .new-index-modal {
+        margin-top: 25%;
+    }
+
+    .begin-btn {
+        background-color: #a4c639;
+        color: #fff;
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 12px 30px;
+        border-radius: 30px;
+        display: inline-block;
+        transition: all 0.3s;
+    }
 }
