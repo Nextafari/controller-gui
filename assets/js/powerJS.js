@@ -103,7 +103,7 @@ startAndStopMovement()
 // retrieve and add across pages
 function stopButtonStatus() {
     // Default state of button in session
-    sessionStorage.setItem("button", "STOP");
+    // sessionStorage.setItem("button", "Click to Start");
 
     // buttons to change
     let confirmTableBtn = document.querySelector(".btn-state");
@@ -118,9 +118,11 @@ function stopButtonStatus() {
     if (confirmTableBtn.textContent === "STOP") {
         // change button colour to red
         confirmTableBtn.style.background = "#ed4264";
-    }else {
+    }else if (confirmTableBtn.textContent === "START") {
         // Change button colour to green
         confirmTableBtn.style.background = "#8dc26f";
+    }else {
+        confirmTableBtn.textContent = "STOP";
     }
 
     console.log("I am the child nodes", confirmTableBtn.textContent);
