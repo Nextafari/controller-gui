@@ -14,8 +14,8 @@ function turnOff() {
         return response.json();
     })
 
-    // using an anon func to redirect users back to index.html after 3300 mili secs
-    setTimeout(()=> {window.location.replace("index.html");}, 3300);
+    // using an anon func to redirect users back to home.html after 3300 mili secs
+    setTimeout(()=> {window.location.replace("home.html");}, 3300);
 }
 
 
@@ -102,20 +102,25 @@ startAndStopMovement()
 // Save the content of the button using session storage
 // retrieve and add across pages
 function stopButtonStatus() {
-    // Retrieve stored button from session
-    let storedBtn = sessionStorage.getItem("button");
+    // Default state of button in session
+    sessionStorage.setItem("button", "STOP");
 
     // buttons to change
     let confirmTableBtn = document.querySelector(".btn-state");
+
+    // Retrieve stored button state from session
+    let storedBtn = sessionStorage.getItem("button");
+
+    // Change text content of button
     confirmTableBtn.textContent = storedBtn;
 
-    // change button colors
-    if (confirmTableBtn.textContent === "START") {
-        confirmTableBtn.style.background = "#8dc26f";
-        console.log("I have changed to green");
-    }else {
+    // change button colours
+    if (confirmTableBtn.textContent === "STOP") {
+        // change button colour to red
         confirmTableBtn.style.background = "#ed4264";
-        console.log("I have changed to red");
+    }else {
+        // Change button colour to green
+        confirmTableBtn.style.background = "#8dc26f";
     }
 
     console.log("I am the child nodes", confirmTableBtn.textContent);
