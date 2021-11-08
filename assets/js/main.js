@@ -58,9 +58,9 @@ function selectedTables() {
     // An empty arry to save the values of the clicked tables
     const valueContainer = [];
     
-    // adding an event listener to the pick up the clicks and save the tables clicked on
+    // adding an event listener to the pick up the clicks and save the tables clicked on and exclude other buttons
     document.body.addEventListener("click", event=> {
-        if (event.target.nodeName == "BUTTON") {
+        if (event.target.nodeName == "BUTTON" && event.target.classList == "table-btn btn btn-md") {
             // saves the user's selection for every click in the empty array
             valueContainer.push(event.target.textContent);
 
