@@ -102,9 +102,6 @@ startAndStopMovement()
 // Save the content of the button using session storage
 // retrieve and add across pages
 function stopButtonStatus() {
-    // Default state of button in session
-    // sessionStorage.setItem("button", "Click to Start");
-
     // buttons to change
     let confirmTableBtn = document.querySelector(".btn-state");
 
