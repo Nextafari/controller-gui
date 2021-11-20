@@ -192,7 +192,7 @@ function robotTableSetup() {
             fetch(
                 `http://127.0.0.1:8000/ros_api/send_table`, {
                     method: "POST",
-                    body: JSON.stringify(event.target.textContent),
+                    body: JSON.stringify(`Save ${event.target.textContent}`),
                     headers: {
                         "Content-Type": "application/json"
                     }
