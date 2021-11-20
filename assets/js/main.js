@@ -192,7 +192,7 @@ function robotTableSetup() {
             fetch(
                 `http://127.0.0.1:8000/ros_api/send_table`, {
                     method: "POST",
-                    body: JSON.stringify(`Save ${event.target.textContent}`),
+                    body: JSON.stringify(`SAVE ${event.target.textContent}`),
                     headers: {
                         "Content-Type": "application/json"
                     }
@@ -210,3 +210,27 @@ function robotTableSetup() {
 }
 
 robotTableSetup()
+
+
+// Sends the kitchen, stop and start mapping to the robot
+function sendKitchenStopStartMessages(_this) {
+
+    // Send the user's input to the endpoint
+    fetch(
+        `http://127.0.0.1:8000/ros_api/send_table`, {
+            method: "POST",
+            body: JSON.stringify(`${_this.value}`),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+    ).then(response => {
+        if (!response.ok) {
+            return response.json();
+        }
+    })
+    
+    _this.disabled = true;
+
+    _this.style.backgroundColor = "#29ffc6";
+}

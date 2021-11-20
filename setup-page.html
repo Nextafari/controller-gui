@@ -28,6 +28,10 @@
             <li class="nav-item">
               <a class="nav-link" href="tables.html">Tables</a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="setup-page.html">Setup Tables</a>
+            </li>
           </ul>
         </div>
     </nav>
@@ -40,14 +44,11 @@
             </p>
         </span>
 
-        <span class="keypad-header-img">
-            <a href="confirm-tables.html">
-                <img src="assets/imgs/okay_tick.svg" alt="image">
-            </a>
-        </span>
+        <button class="keypad-header-img save-kitchen" id="saveKitchen-btn" value="SAVE KITCHEN" onclick="sendKitchenStopStartMessages(this)">
+            SAVE AS KITCHEN
+        </button>
 
         <button class="refresh-btn" onclick="window.location.reload()">
-            <!-- <img src="assets/imgs/transparent-refresh.png" alt="image"> -->
             <i class="icofont-refresh"></i>
         </button>
     </div>
@@ -63,16 +64,13 @@
     </div>
 
     <div class="row powerButton" id="power-section">
-        <button class="btn btn-lg start-btn start-bg btn-state" id="start-btn" data-toggle="modal" data-target="#exampleModal">
-            STOP
+        <button class="btn btn-lg start-btn start-bg btn-state" id="stopMapping-btn" value="STOP MAPPING" onclick="sendKitchenStopStartMessages(this)">
+            STOP MAPPING
         </button>
   
-        <a href="confirm-shutdown.html">
-            <button class="btn btn-lg start-btn power-icon">
-                <!-- <i class="icofont-power power-font"></i> -->
-                RESET
-            </button>
-        </a>
+        <button class="btn btn-lg start-btn power-icon" id="startMapping-btn" value="START MAPPING" onclick="sendKitchenStopStartMessages(this)">
+            START MAPPING
+        </button>
     </div>
 
     
