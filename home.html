@@ -29,25 +29,57 @@
           <li class="nav-item">
             <a class="nav-link" href="tables.html">Tables</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="setup-page.html">Setup Tables</a>
+          </li>
         </ul>
       </div>
     </nav>
     
     <div class="jumbotron">
       <h1 class="display-4">Dispatch Food</h1>
-      <!-- <p class="lead">
-        Dispatch Food
-      </p> -->
+
+      <button class="begin-btn" style="background: #3498db; box-shadow: 10px 10px rgba(0, 0, 0, 1); margin-top: 3vh;" value="FOOD TAKEN" onclick="sendToBackendRobot(this)"> Food Has Been Taken </button>
+      
+      
       <hr class="my-4">
       <div class="myBtns">
-        <a href="tables.html"><button class="btn btn-lg lead left-btn">
-          <h4 class="btn-header">ABCD</h4>
-          <span class="btn-txt btn-left-txt">Normal</span>
-        </button></a>
-        <button class="btn btn-lg lead right-btn">
-          <h4 class="btn-header">CBDA</h4>
-          <span class="btn-txt btn-right-txt">Priority</span>
+        <a href="tables.html">
+          <button class="btn btn-lg lead left-btn">
+            <h4 class="btn-header">ABCD</h4>
+            <span class="btn-txt btn-left-txt">Normal</span>
+          </button>
+        </a>
+        <button class="btn btn-lg lead right-btn" data-toggle="modal" data-target="#goToKitchenModal">
+          <h4 class="btn-header">Go To</h4>
+          <span class="btn-txt btn-right-txt">Kitchen</span>
         </button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="goToKitchenModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body" id="">
+            <h2 style="margin-top: -3vh; margin-bottom: 5vh;">
+              Proceed to Kitchen ?
+            </h2>
+            <span>
+              <button value="KITCHEN" id="proceed-btn" onclick="turnOff()" style="background: rgba(0, 0, 0, 0); color: white; font-weight: 600; margin-right: 10vw;">
+                Yes
+              </button>
+            </span>
+
+           <span>
+             <button style="background: rgba(0, 0, 0, 0); color: white; font-weight: 600;" onclick="hideModal()">
+              No
+             </button>
+           </span>
+           
+          </div>
+        </div>
       </div>
     </div>
 

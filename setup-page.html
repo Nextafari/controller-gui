@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/table.css">
     <link rel="stylesheet" href="assets/icofont/icofont.min.css">
-    <title>Tables</title>
+    <title>Setup Page</title>
 </head>
-<body id="body-img"  onload="sendTableNextPage()">
+<body id="">
     <nav class="navbar navbar-light" style="background-color: #3498db;">
         <a class="navbar-brand" href="#">食品注文履歴</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,64 +38,52 @@
 
     <div class="keypad-header">
         <span class="keypad-header-txt">
-            <!-- <img src="assets/imgs/japanese-peace-kanji.svg" alt="Peace"> -->
             <p>
                 食べ物は準備ができています、<br>
                 誰が食べたいですか？
             </p>
         </span>
 
-        <span class="previous-sign">
-            <a href="tables.html">
-                <img  src="assets/imgs/pitr_green_single_arrows_set_4.svg" alt="image">
-            </a>
-        </span>
+        <button class="keypad-header-img save-kitchen" value="SETUP TABLES" onclick="sendKitchenStopStartMessages(this)">
+            SETUP TABLES
+        </button>
+
+        <button class="keypad-header-img save-kitchen" value="SETUP DATA FOLDER" onclick="sendKitchenStopStartMessages(this)">
+            SETUP DATA FOLDER
+        </button>
+
+        <button class="keypad-header-img save-kitchen" value="SAVE KITCHEN" onclick="sendKitchenStopStartMessages(this)">
+            SAVE AS KITCHEN
+        </button>
+
+        <button class="refresh-btn" onclick="window.location.reload()">
+            <i class="icofont-refresh"></i>
+        </button>
     </div>
     
     <div class="row keypad-arrangement">
-        <div class="container confirm-table-keypad">
+        <div class="container table-keypad">
             <!-- <button class="btn btn-md table-btn">
                 Table 1
             </button> -->
-            <!-- Buttons are dynamically generated -->
             
-        </div>
-
-        <div>
-            <button class="btn btn-lg confirm-btn" data-toggle="modal" data-target="#exampleModal" onclick="confirmTable()">
-                CONFIRM
-            </button>
-        </div>
-    </div>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    Table requests received!!! <br>
-                    Robot going to deliver <i class="icofont-simple-smile" style="background: ffb703;"></i>
-                </div>
-            </div>
+            <!-- The buttons are being generated via JS -->
         </div>
     </div>
 
     <div class="row powerButton" id="power-section">
-        <button class="btn btn-lg start-btn start-bg btn-state" id="start-btn" data-toggle="modal" data-target="#powerModal">
-            STOP
+        <button class="btn btn-lg start-btn start-bg btn-state" value="STOP MAPPING" onclick="sendKitchenStopStartMessages(this)">
+            STOP MAPPING
         </button>
   
-        <a href="confirm-shutdown.html">
-            <button class="btn btn-lg start-btn power-icon">
-                <!-- <i class="icofont-power power-font"></i> -->
-                RESET
-            </button>
-        </a>
+        <button class="btn btn-lg start-btn power-icon" value="START MAPPING" onclick="sendKitchenStopStartMessages(this)">
+            START MAPPING
+        </button>
     </div>
 
     
     <!-- Modal -->
-    <div class="modal fade" id="powerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-body" id="shutdown-modalBody">
@@ -104,6 +92,7 @@
           </div>
         </div>
     </div>
+
 
     <script src="assets/js/powerJS.js"></script>
     <script src="assets/js/main.js"></script>
