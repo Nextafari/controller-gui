@@ -563,7 +563,7 @@ body {
         font-weight: 600;
         border-radius: 20px;
         height: 7vh;
-        width: 12vw;
+        width: 17vw;
     }
 
     .form-input {
@@ -590,6 +590,10 @@ body {
         margin-top: 12%;
         margin-right: 10%;
         /* color: #a4c639; */
+    }
+
+    .edit-form-txt {
+        margin-left: -2%;
     }
     
 }

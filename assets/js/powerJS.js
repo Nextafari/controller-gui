@@ -163,42 +163,42 @@ function hideModal() {
 
 
 // Validates the user input(location) and sends the data(location) to the backend
-function validateForm() {
-    // Getting the user data from the form
-    let newformData = document.forms["myForm"]["fname"].value;
-    let formData = newformData.toUpperCase()
+// function validateForm() {
+//     // Getting the user data from the form
+//     let newformData = document.forms["myForm"]["fname"].value;
+//     let formData = newformData.toUpperCase()
 
-    // Validating form data from user, checking for empty and numeric inputs
-    if (formData == "") {
-      alert("Field must not be empty");
-      return false;
-    }else if (isNaN(formData) == false) {
-        alert("You must enter either Alphabets or AlphaNumeric Values")
-        return false;
-    }else {
-        // Using the fetch method to send user data to the backend db
-        fetch(
-            `http://127.0.0.1:8000/ros_api/robot-location`, {
-                method: "POST",
-                body: JSON.stringify(
-                    {
-                        "location": formData,
-                    }
-                ),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            }
-        ).then(response => {
-            if (!response.ok) {
-                return response.json();
-            }
-        })
+//     // Validating form data from user, checking for empty and numeric inputs
+//     if (formData == "") {
+//       alert("Field must not be empty");
+//       return false;
+//     }else if (isNaN(formData) == false) {
+//         alert("You must enter either Alphabets or AlphaNumeric Values")
+//         return false;
+//     }else {
+//         // Using the fetch method to send user data to the backend db
+//         fetch(
+//             `http://127.0.0.1:8000/ros_api/robot-location`, {
+//                 method: "POST",
+//                 body: JSON.stringify(
+//                     {
+//                         "location": formData,
+//                     }
+//                 ),
+//                 headers: {
+//                     "Content-Type": "application/json"
+//                 }
+//             }
+//         ).then(response => {
+//             if (!response.ok) {
+//                 return response.json();
+//             }
+//         })
 
-        // sends data to the robot with the send Data function
-        sendDataToAPI(formData);
-    }
-}
+//         // sends data to the robot with the send Data function
+//         sendDataToAPI(formData);
+//     }
+// }
 
 
 // Using async function to fetch locations from the backend to display on the frontend
@@ -245,13 +245,12 @@ async function returnEditLocationID(url){
 // Edits the current location of the restaurant
 function sendEditedLocation() {
     let id = setTimeout(returnEditLocationID("http://127.0.0.1:8000/ros_api/current-robot-location"), 1000);
-    console.log(id);
 
     // Getting the user data from the form
     let newformData = document.forms["myForm1"]["fname1"].value;
     let formData = newformData.toUpperCase();
 
-    console.log(`${formData}`);
+    console.log(id);
 
     // Validating form data from user, checking for empty and numeric inputs
     if (formData == "") {
@@ -262,8 +261,7 @@ function sendEditedLocation() {
         return false;
     }else {
         // Using the fetch method to send user data to the backend db
-        fetch(
-            `http://127.0.0.1:8000/ros_api/edit-current-robot-location/${id}`, {
+        fetch(`http://127.0.0.1:8000/ros_api/edit-current-robot-location/6/`, {
                 method: "PATCH",
                 body: JSON.stringify(
                     {
