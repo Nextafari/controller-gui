@@ -572,5 +572,24 @@ body {
         width: 25%;
         margin-right: 4vw;
     }
+
+    .location-holder {
+        float: right;
+        margin-right: 3%;
+        color: #a4c639;
+        font-weight: 600;
+        background: rgba(0, 0, 0, 1);
+		border-radius: 20px;
+		text-align: center;
+        height: 10%;
+        width: 20%;
+    }
+
+    .location-holder p {
+        margin-left: 10%;
+        margin-top: 12%;
+        margin-right: 10%;
+        /* color: #a4c639; */
+    }
     
 }

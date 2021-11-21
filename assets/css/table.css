@@ -190,4 +190,22 @@
         color: white;
 		margin-left: 0vw;
     }
+
+	.location-holder {
+		margin-left: 5%;
+		color: #a4c639;
+        font-weight: 600;
+	}
+
+	.location-holder p {
+		margin-left: 5%;
+		font-weight: 600;
+		color: #a4c639;
+        font-weight: 600;
+        background: rgba(0, 0, 0, 1);
+		border-radius: 20px;
+		text-align: center;
+        height: 5%;
+        width: 20%;
+	}
 }

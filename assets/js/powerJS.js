@@ -167,6 +167,8 @@ function validateForm() {
     // Getting the user data from the form
     let newformData = document.forms["myForm"]["fname"].value;
     let formData = newformData.toUpperCase()
+
+    // Validating form data from user, checking for empty and numeric inputs
     if (formData == "") {
       alert("Field must not be empty");
       return false;
@@ -197,3 +199,32 @@ function validateForm() {
         sendDataToAPI(formData);
     }
 }
+
+
+// Using async function to fetch locations from the backend to display on the frontend
+async function InsertLocation(url) {
+    const response = await fetch(url);
+
+    const data = await response.json();
+
+    // creating a new p element
+    const locationTxt = document.createElement("p");
+
+    // styling the text
+    locationTxt.style.color = "#a4c639";
+    locationTxt.style.fontWeight = "500";
+
+    // Creating a text for the p element
+    const txtNode = document.createTextNode(data.location);
+
+    // Appending the text to the p element
+    locationTxt.appendChild(txtNode);
+
+    // Appending the p element to the DOM
+    const element = document.querySelector(".location-holder");
+    element.appendChild(locationTxt);
+
+    console.log(data);
+}
+
+InsertLocation("http://127.0.0.1:8000/ros_api/current-robot-location");
