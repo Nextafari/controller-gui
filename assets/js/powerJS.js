@@ -164,32 +164,36 @@ function hideModal() {
 
 // Valuidates the user input and sends the data to the backend
 function validateForm() {
+    // Getting the user data from the form
     let newformData = document.forms["myForm"]["fname"].value;
     let formData = newformData.toUpperCase()
     if (formData == "") {
       alert("Field must not be empty");
       return false;
     }else if (isNaN(formData) == false) {
-        alert("You must use either Alphabets or AlphaNumeric Values")
+        alert("You must enter either Alphabets or AlphaNumeric Values")
         return false;
     }else {
-        console.log(`This is my Form Data here: ${formData}`);
-
-        // sends data to the robot
-
-        // Creates a new HTTP request to send form data to the backend
-        let newHttpRequest = new XMLHttpRequest();
-
-        // Sets the header of the request
-        newHttpRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
-        // Converts user input to a JSON object
-        let userInput = JSON.stringify(
-            {
-                "location": formData,
+        // Using the fetch method to send user data to the backend db
+        fetch(
+            `http://127.0.0.1:8000/ros_api/robot-location`, {
+                method: "POST",
+                body: JSON.stringify(
+                    {
+                        "location": formData,
+                    }
+                ),
+                headers: {
+                    "Content-Type": "application/json"
+                }
             }
-        );
-        console.log(`This is my user Input here: ${userInput}`);
-        // newHttpRequest.send(userInput);
+        ).then(response => {
+            if (!response.ok) {
+                return response.json();
+            }
+        })
+
+        // sends data to the robot with the send Data function
+        sendDataToAPI(formData);
     }
 }
