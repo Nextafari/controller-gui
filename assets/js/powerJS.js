@@ -126,14 +126,12 @@ function stopButtonStatus() {
 stopButtonStatus()
 
 
-// Just sends stuff to the backend and to the robot
-function sendToBackendRobot(_this) {
-
-    // Send the user's input to the endpoint
+// Sends data via API
+function sendDataToAPI(_this) {
     fetch(
         `http://127.0.0.1:8000/ros_api/send_table`, {
             method: "POST",
-            body: JSON.stringify(`${_this.value}`),
+            body: JSON.stringify(`${_this}`),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -143,4 +141,55 @@ function sendToBackendRobot(_this) {
             return response.json();
         }
     })
+}
+
+
+// Just sends stuff to the backend and to the robot
+function sendToBackendRobot(_this) {
+
+    // Send the user's input to the endpoint
+    sendDataToAPI(_this.value);
+}
+
+
+function hideModal() {
+    // console.log(_this.textContent);
+    let modal = document.getElementById("goToKitchenModal");
+    modal.hidden = true;
+
+    // using an anon func to redirect users back to home.html after 10mili secs
+    setTimeout(async()=> {window.location.replace("home.html");}, 10);
+}
+
+
+// Valuidates the user input and sends the data to the backend
+function validateForm() {
+    let newformData = document.forms["myForm"]["fname"].value;
+    let formData = newformData.toUpperCase()
+    if (formData == "") {
+      alert("Field must not be empty");
+      return false;
+    }else if (isNaN(formData) == false) {
+        alert("You must use either Alphabets or AlphaNumeric Values")
+        return false;
+    }else {
+        console.log(`This is my Form Data here: ${formData}`);
+
+        // sends data to the robot
+
+        // Creates a new HTTP request to send form data to the backend
+        let newHttpRequest = new XMLHttpRequest();
+
+        // Sets the header of the request
+        newHttpRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+        // Converts user input to a JSON object
+        let userInput = JSON.stringify(
+            {
+                "location": formData,
+            }
+        );
+        console.log(`This is my user Input here: ${userInput}`);
+        // newHttpRequest.send(userInput);
+    }
 }

@@ -51,10 +51,35 @@
             <span class="btn-txt btn-left-txt">Normal</span>
           </button>
         </a>
-        <button class="btn btn-lg lead right-btn" id="proceed-btn" value="KITCHEN" onclick="turnOff()">
+        <button class="btn btn-lg lead right-btn" data-toggle="modal" data-target="#goToKitchenModal">
           <h4 class="btn-header">Go To</h4>
           <span class="btn-txt btn-right-txt">Kitchen</span>
         </button>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="goToKitchenModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body" id="">
+            <h2 style="margin-top: -3vh; margin-bottom: 5vh;">
+              Proceed to Kitchen ?
+            </h2>
+            <span>
+              <button value="KITCHEN" id="proceed-btn" onclick="turnOff()" style="background: rgba(0, 0, 0, 0); color: white; font-weight: 600; margin-right: 10vw;">
+                Yes
+              </button>
+            </span>
+
+           <span>
+             <button style="background: rgba(0, 0, 0, 0); color: white; font-weight: 600;" onclick="hideModal()">
+              No
+             </button>
+           </span>
+           
+          </div>
+        </div>
       </div>
     </div>
 

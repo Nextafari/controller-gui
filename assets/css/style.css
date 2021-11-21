@@ -548,4 +548,13 @@ body {
         display: inline-block;
         transition: all 0.3s;
     }
+
+    #locationForm {
+        margin-left: 5%;
+        margin-top: 3%;
+        color: #a4c639;
+        font-weight: 800;
+        font-size: 24px;
+    }
+    
 }
