@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/icofont/icofont.min.css">
     <title>Robot Controller Frontend</title>
   </head>
-  <body>
+  <body onload="sendDataOnLoad()">
     <nav class="navbar navbar-light" style="background-color: #3498db;">
       <a class="navbar-brand" href="#">食品注文履歴</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +41,13 @@
       <span class="location-holder">
         <!-- <p>location holder</p> -->
       </span>
+
+      <!-- FORM DATA TO EDIT USER LOCATION -->
+      <form name="myForm1" id="locationForm" onsubmit="sendEditedLocation()" style="margin-bottom: 7%;">
+        <p class="edit-form-txt">CHANGE ROBOT LOCATION:</p>
+        <input type="text" name="fname1" class="form-input">
+        <input type="submit" value="Change" class="submit-btn">
+      </form>
       
       <h1 class="display-4">Dispatch Food</h1>
 

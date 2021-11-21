@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/icofont/icofont.min.css">
     <title>Setup Page</title>
 </head>
-<body id="" onload="InsertLocation('http://127.0.0.1:8000/ros_api/current-robot-location');">
+<body id="" onload="InsertLocation('http://127.0.0.1:8000/ros_api/current-robot-location'); sendDataOnLoad();">
     <nav class="navbar navbar-light" style="background-color: #3498db;">
         <a class="navbar-brand" href="#">食品注文履歴</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +40,12 @@
        Robot Location: <!-- <p>location holder</p> -->
     </span>
 
+    <form name="myForm1" id="locationForm" onsubmit="sendEditedLocation()" style="margin-bottom: 7%;">
+        <p class="form-title">CHANGE ROBOT LOCATION:</p>
+        <input class="txt-input" type="text" name="fname1" class="form-input">
+        <input type="submit" value="Change" class="submit-btn">
+    </form>
+
     <div class="keypad-header">
         <span class="keypad-header-txt">
             <p>
@@ -48,13 +54,15 @@
             </p>
         </span>
 
-        <button class="keypad-header-img save-kitchen" value="SETUP TABLES" onclick="sendKitchenStopStartMessages(this)">
-            SETUP TABLES
-        </button>
-
-        <button class="keypad-header-img save-kitchen" value="SETUP DATA FOLDER" onclick="sendKitchenStopStartMessages(this)">
-            SETUP DATA FOLDER
-        </button>
+        <div class="setup-btns">
+            <button class="keypad-header-img save-kitchen setupBtn" value="SETUP TABLES" onclick="sendKitchenStopStartMessages(this)">
+                SETUP TABLES
+            </button>
+    
+            <button class="keypad-header-img save-kitchen setupFldr" value="SETUP DATA FOLDER" onclick="sendKitchenStopStartMessages(this)">
+                SETUP DATA FOLDER
+            </button>
+        </div>
 
         <button class="keypad-header-img save-kitchen" value="SAVE KITCHEN" onclick="sendKitchenStopStartMessages(this)">
             SAVE AS KITCHEN

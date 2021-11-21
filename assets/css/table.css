@@ -208,4 +208,48 @@
         height: 5%;
         width: 20%;
 	}
+
+	.submit-btn {
+        color: #a4c639;
+        text-transform: uppercase;
+        font-weight: 600;
+        border-radius: 20px;
+        height: 7vh;
+        width: 17vw;
+    }
+
+    .form-input {
+        height: 100%;
+        transform: scale(1.2);
+        width: 25%;
+        margin-right: 4vw;
+    }
+
+	.form-title {
+		color: black;
+		margin-left: 2%;
+	}
+
+	#locationForm {
+		margin-left: 3%;
+	}
+
+	.txt-input {
+		margin-left: 2%;
+	}
+
+	.setup-btns {
+		display: flex;
+		float: left;
+		margin-right: 5%;
+		margin-left: -22%;
+	}
+
+	.setupBtn {
+		margin-right: 4%;
+	}
+
+	.setupFldr {
+		margin-right: 10%;
+	}
 }
