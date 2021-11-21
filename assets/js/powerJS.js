@@ -162,7 +162,7 @@ function hideModal() {
 }
 
 
-// Valuidates the user input and sends the data to the backend
+// Validates the user input(location) and sends the data(location) to the backend
 function validateForm() {
     // Getting the user data from the form
     let newformData = document.forms["myForm"]["fname"].value;
@@ -212,7 +212,7 @@ async function InsertLocation(url) {
 
     // styling the text
     locationTxt.style.color = "#a4c639";
-    locationTxt.style.fontWeight = "500";
+    locationTxt.style.fontWeight = "600";
 
     // Creating a text for the p element
     const txtNode = document.createTextNode(data.location);
@@ -228,3 +228,60 @@ async function InsertLocation(url) {
 }
 
 InsertLocation("http://127.0.0.1:8000/ros_api/current-robot-location");
+
+
+// Async function that returns the id of the restaurant location
+async function returnEditLocationID(url){
+    const response = await fetch(url);
+
+    const data = await response.json();
+
+    let dataID = data.id;
+
+    return dataID
+}
+
+
+// Edits the current location of the restaurant
+function sendEditedLocation() {
+    let id = setTimeout(returnEditLocationID("http://127.0.0.1:8000/ros_api/current-robot-location"), 1000);
+    console.log(id);
+
+    // Getting the user data from the form
+    let newformData = document.forms["myForm1"]["fname1"].value;
+    let formData = newformData.toUpperCase();
+
+    console.log(`${formData}`);
+
+    // Validating form data from user, checking for empty and numeric inputs
+    if (formData == "") {
+    alert("Field must not be empty");
+    return false;
+    }else if (isNaN(formData) == false) {
+        alert("You must enter either Alphabets or AlphaNumeric Values")
+        return false;
+    }else {
+        // Using the fetch method to send user data to the backend db
+        fetch(
+            `http://127.0.0.1:8000/ros_api/edit-current-robot-location/${id}`, {
+                method: "PATCH",
+                body: JSON.stringify(
+                    {
+                        "location": formData,
+                    }
+                ),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+        ).then(response => {
+            if (!response.ok) {
+                return response.json();
+            }
+        })
+
+        // sends data to the robot with the send Data function
+        sendDataToAPI(formData);
+    }
+    
+}
