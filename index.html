@@ -9,12 +9,16 @@
 		<title>Restaurant Robot Service</title>
 	</head>
 
-	<body id="new-index">
-		
-		<form name="myForm" id="locationForm" onsubmit="return validateForm()" method="post">
+	<body id="new-index" onload="InsertLocation('http://127.0.0.1:8000/ros_api/current-robot-location')">
+		<span class="location-holder">
+			<!-- <p>location holder</p> -->
+		</span>
+
+		<!-- FORM DATA TO COLLECT USER LOCATION -->
+		<form name="myForm" id="locationForm" onsubmit="return validateForm();">
 			<p>ENTER ROBOT LOCATION:</p>
-			<input type="text" name="fname">
-			<input type="submit" value="Submit">
+			<input type="text" name="fname" class="form-input">
+			<input type="submit" value="Submit" class="submit-btn">
 		</form>
 
 		<!-- MODAL DIV -->

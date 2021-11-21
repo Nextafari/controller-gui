@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/icofont/icofont.min.css">
     <title>Setup Page</title>
 </head>
-<body id="">
+<body id="" onload="InsertLocation('http://127.0.0.1:8000/ros_api/current-robot-location');">
     <nav class="navbar navbar-light" style="background-color: #3498db;">
         <a class="navbar-brand" href="#">食品注文履歴</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,6 +35,10 @@
           </ul>
         </div>
     </nav>
+
+    <span class="location-holder" style="color: black;">
+       Robot Location: <!-- <p>location holder</p> -->
+    </span>
 
     <div class="keypad-header">
         <span class="keypad-header-txt">

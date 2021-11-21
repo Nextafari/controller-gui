@@ -164,32 +164,67 @@ function hideModal() {
 
 // Valuidates the user input and sends the data to the backend
 function validateForm() {
+    // Getting the user data from the form
     let newformData = document.forms["myForm"]["fname"].value;
     let formData = newformData.toUpperCase()
+
+    // Validating form data from user, checking for empty and numeric inputs
     if (formData == "") {
       alert("Field must not be empty");
       return false;
     }else if (isNaN(formData) == false) {
-        alert("You must use either Alphabets or AlphaNumeric Values")
+        alert("You must enter either Alphabets or AlphaNumeric Values")
         return false;
     }else {
-        console.log(`This is my Form Data here: ${formData}`);
-
-        // sends data to the robot
-
-        // Creates a new HTTP request to send form data to the backend
-        let newHttpRequest = new XMLHttpRequest();
-
-        // Sets the header of the request
-        newHttpRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
-        // Converts user input to a JSON object
-        let userInput = JSON.stringify(
-            {
-                "location": formData,
+        // Using the fetch method to send user data to the backend db
+        fetch(
+            `http://127.0.0.1:8000/ros_api/robot-location`, {
+                method: "POST",
+                body: JSON.stringify(
+                    {
+                        "location": formData,
+                    }
+                ),
+                headers: {
+                    "Content-Type": "application/json"
+                }
             }
-        );
-        console.log(`This is my user Input here: ${userInput}`);
-        // newHttpRequest.send(userInput);
+        ).then(response => {
+            if (!response.ok) {
+                return response.json();
+            }
+        })
+
+        // sends data to the robot with the send Data function
+        sendDataToAPI(formData);
     }
 }
+
+
+// Using async function to fetch locations from the backend to display on the frontend
+async function InsertLocation(url) {
+    const response = await fetch(url);
+
+    const data = await response.json();
+
+    // creating a new p element
+    const locationTxt = document.createElement("p");
+
+    // styling the text
+    locationTxt.style.color = "#a4c639";
+    locationTxt.style.fontWeight = "500";
+
+    // Creating a text for the p element
+    const txtNode = document.createTextNode(data.location);
+
+    // Appending the text to the p element
+    locationTxt.appendChild(txtNode);
+
+    // Appending the p element to the DOM
+    const element = document.querySelector(".location-holder");
+    element.appendChild(locationTxt);
+
+    console.log(data);
+}
+
+InsertLocation("http://127.0.0.1:8000/ros_api/current-robot-location");
