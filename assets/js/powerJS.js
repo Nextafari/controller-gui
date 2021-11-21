@@ -224,6 +224,20 @@ function sendEditedLocation() {
         })
 
         // sends data to the robot with the send Data function
-        sendDataToAPI(formData);
+        sendDataToAPI(`LOCATION ${formData}`);
     }
+}
+
+
+async function sendDataOnLoad() {
+    let url = "http://127.0.0.1:8000/ros_api/current-robot-location";
+    const response = await fetch(url);
+
+    const data = await response.json();
+
+    let currentLocation = data.location;
+
+    sendDataToAPI(`LOCATION ${currentLocation}`);
+    return currentLocation;
+    
 }
