@@ -162,45 +162,6 @@ function hideModal() {
 }
 
 
-// Validates the user input(location) and sends the data(location) to the backend
-// function validateForm() {
-//     // Getting the user data from the form
-//     let newformData = document.forms["myForm"]["fname"].value;
-//     let formData = newformData.toUpperCase()
-
-//     // Validating form data from user, checking for empty and numeric inputs
-//     if (formData == "") {
-//       alert("Field must not be empty");
-//       return false;
-//     }else if (isNaN(formData) == false) {
-//         alert("You must enter either Alphabets or AlphaNumeric Values")
-//         return false;
-//     }else {
-//         // Using the fetch method to send user data to the backend db
-//         fetch(
-//             `http://127.0.0.1:8000/ros_api/robot-location`, {
-//                 method: "POST",
-//                 body: JSON.stringify(
-//                     {
-//                         "location": formData,
-//                     }
-//                 ),
-//                 headers: {
-//                     "Content-Type": "application/json"
-//                 }
-//             }
-//         ).then(response => {
-//             if (!response.ok) {
-//                 return response.json();
-//             }
-//         })
-
-//         // sends data to the robot with the send Data function
-//         sendDataToAPI(formData);
-//     }
-// }
-
-
 // Using async function to fetch locations from the backend to display on the frontend
 async function InsertLocation(url) {
     const response = await fetch(url);
@@ -230,27 +191,11 @@ async function InsertLocation(url) {
 InsertLocation("http://127.0.0.1:8000/ros_api/current-robot-location");
 
 
-// Async function that returns the id of the restaurant location
-async function returnEditLocationID(url){
-    const response = await fetch(url);
-
-    const data = await response.json();
-
-    let dataID = data.id;
-
-    return dataID
-}
-
-
 // Edits the current location of the restaurant
 function sendEditedLocation() {
-    let id = setTimeout(returnEditLocationID("http://127.0.0.1:8000/ros_api/current-robot-location"), 1000);
-
     // Getting the user data from the form
     let newformData = document.forms["myForm1"]["fname1"].value;
     let formData = newformData.toUpperCase();
-
-    console.log(id);
 
     // Validating form data from user, checking for empty and numeric inputs
     if (formData == "") {
@@ -281,5 +226,4 @@ function sendEditedLocation() {
         // sends data to the robot with the send Data function
         sendDataToAPI(formData);
     }
-    
 }
