@@ -39,15 +39,18 @@
     
     <div class="jumbotron">
       <h1 class="display-4">Dispatch Food</h1>
-      <!-- <p class="lead">
-        Dispatch Food
-      </p> -->
+
+      <button class="begin-btn" style="background: #3498db; box-shadow: 10px 10px rgba(0, 0, 0, 1); margin-top: 3vh;" value="FOOD TAKEN" onclick="sendToBackendRobot(this)"> Food Has Been Taken </button>
+      
+      
       <hr class="my-4">
       <div class="myBtns">
-        <a href="tables.html"><button class="btn btn-lg lead left-btn">
-          <h4 class="btn-header">ABCD</h4>
-          <span class="btn-txt btn-left-txt">Normal</span>
-        </button></a>
+        <a href="tables.html">
+          <button class="btn btn-lg lead left-btn">
+            <h4 class="btn-header">ABCD</h4>
+            <span class="btn-txt btn-left-txt">Normal</span>
+          </button>
+        </a>
         <button class="btn btn-lg lead right-btn" id="proceed-btn" value="KITCHEN" onclick="turnOff()">
           <h4 class="btn-header">Go To</h4>
           <span class="btn-txt btn-right-txt">Kitchen</span>
