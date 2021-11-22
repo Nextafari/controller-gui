@@ -206,7 +206,7 @@ function sendEditedLocation() {
         return false;
     }else {
         // Using the fetch method to send user data to the backend db
-        fetch(`http://127.0.0.1:8000/ros_api/edit-current-robot-location/6/`, {
+        fetch(`http://127.0.0.1:8000/ros_api/edit-current-robot-location/1/`, {
                 method: "PATCH",
                 body: JSON.stringify(
                     {
