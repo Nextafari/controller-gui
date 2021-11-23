@@ -221,7 +221,9 @@ function sendEditedLocation() {
             if (!response.ok) {
                 return response.json();
             }
-        })
+        }).catch((error) => {
+            console.error('Error Message:', error);
+        });
 
         // sends data to the robot with the send Data function
         sendDataToAPI(`LOCATION ${formData}`);
