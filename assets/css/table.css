@@ -30,6 +30,19 @@
 		background: rgba(0, 0, 0, 0.7);
 	}
 
+	.setupTable-btn {
+		height: 12vh;
+		width: 13vw;
+		border-radius: 10%;
+		margin-bottom: 5vh;
+		margin-left: 3vw;
+		color: white;
+        font-family: 'Raleway', sans-serif;
+		font-weight: 200;
+		font-size: 14pt;
+		background: rgba(0, 0, 0, 0.7);
+	}
+
 	.keypad-arrangement {
 		margin-top: 5vh;
 		margin-bottom: 7vh;

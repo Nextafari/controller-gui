@@ -1,11 +1,3 @@
-// Attribute Helper Func
-// function setAttributes(elem, attrs) {
-//     for (let name in attrs) {
-//         elem.setAttribute(name, attrs[name]);
-//     }
-// }
-
-
 // Set cookies to store tables that were selected by the user
 function setCookies(cname, cvalue, exprdays) {
     const d = new Date();
@@ -40,16 +32,7 @@ function changeButtonColor(_this) {
 
 // Prevents user from selecting a table multiple times
 function stopMultipleTableSelection(_this) {
-    let alreadyInCookie = getCookie("selected Tables");
-    let cookieValue = alreadyInCookie.split(",");
-
-    for (let i = 0; i < cookieValue.length; i++) {
-        if (_this.textContent === cookieValue[i]) {
-            // Disables the button clicked by a user
-            _this.disabled = true;
-        }
-    }
-
+    _this.disabled = true;
 }
 
 
@@ -149,6 +132,7 @@ function lockUp() {
     setTimeout(lockUp, 50);
 }
 
+
 // Sends the confirmed tables to robot via backend
 function confirmTable() {
     const data = getCookie("selected Tables")
@@ -178,38 +162,6 @@ function confirmTable() {
     // using an anon func to redirect users back to home.html after 3500 mili secs
     setTimeout(()=> {window.location.replace("home.html");}, 3500);
 }
-
-
-// Sends data to the backend as soon as user clicks
-function robotTableSetup() {
-    // adding an event listener to the pick up the setup buttons clicked on and exclude other buttons
-    document.body.addEventListener("click", event=> {
-        if (event.target.nodeName == "BUTTON" && event.target.classList == "table-btn btn btn-md") {
-            // Calling the function to change the color of the button that is clicked based on the event
-            changeButtonColor(event.target);
-            
-            // Send the user's input to the endpoint
-            fetch(
-                `http://127.0.0.1:8000/ros_api/send_table`, {
-                    method: "POST",
-                    body: JSON.stringify(`SAVE ${event.target.textContent}`),
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
-                }
-            ).then(response => {
-                if (!response.ok) {
-                    return response.json();
-                }
-            })
-            
-            // Disables the button to avoid multiple clicks from the user
-            stopMultipleTableSelection(event.target);
-        }
-    });
-}
-
-robotTableSetup()
 
 
 // Sends the kitchen, stop and start mapping to the robot
