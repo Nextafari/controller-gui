@@ -1,3 +1,5 @@
+const sendTable = `http://127.0.0.1:8000/ros_api/send_table`;
+
 // Using async function to fetch tables from the backend and display them on the frontend for setup
 async function setupTables(url) {
     const response = await fetch(url);
@@ -47,7 +49,7 @@ function robotTableSetup() {
             
             // Send the user's input to the endpoint
             fetch(
-                `http://127.0.0.1:8000/ros_api/send_table`, {
+                sendTable, {
                     method: "POST",
                     body: JSON.stringify(event.target.textContent),
                     headers: {

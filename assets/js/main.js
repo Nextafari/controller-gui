@@ -1,3 +1,6 @@
+const sendTable = `http://127.0.0.1:8000/ros_api/send_table`;
+
+
 // Set cookies to store tables that were selected by the user
 function setCookies(cname, cvalue, exprdays) {
     const d = new Date();
@@ -140,7 +143,7 @@ function confirmTable() {
     
     // Send the user's input to the endpoint
     fetch(
-        `http://127.0.0.1:8000/ros_api/send_table`, {
+        sendTable, {
             method: "POST",
             body: tableData,
             headers: {
@@ -169,7 +172,7 @@ function sendKitchenStopStartMessages(_this) {
 
     // Send the user's input to the endpoint
     fetch(
-        `http://127.0.0.1:8000/ros_api/send_table`, {
+        sendTable, {
             method: "POST",
             body: JSON.stringify(`${_this.value}`),
             headers: {
