@@ -1,9 +1,12 @@
+const shutDownUrl = `http://127.0.0.1:8000/ros_api/shutdown`;
+const turnOn = `http://127.0.0.1:8000/ros_api/turn_on`;
+
 // Turns off the Robot on btn click 
 function turnOff() {
     let proceedToShutDown = document.getElementById("proceed-btn").value;
 
     fetch(
-    `http://127.0.0.1:8000/ros_api/shutdown`, {
+    shutDownUrl, {
             method: "POST",
             body: JSON.stringify(proceedToShutDown),
             headers: {
@@ -24,7 +27,7 @@ function turnOff() {
 //     let turnOnBtn = document.querySelector(".start-btn").value;
 //     console.log("This is the turn on butn", turnOnBtn);
 //     fetch(
-//         `http://127.0.0.1:8000/ros_api/turn_on`, {
+//         turnOn, {
 //             method: "POST",
 //             body: JSON.stringify(proceedToShutDown),
 //             headers: {
@@ -58,7 +61,7 @@ function startAndStopMovement() {
 
             // Sending data to the backend to start up the robot
             fetch(
-                `http://127.0.0.1:8000/ros_api/turn_on`, {
+                turnOn, {
                     method: "POST",
                     body: JSON.stringify("STOP"),
                     headers: {
@@ -80,7 +83,7 @@ function startAndStopMovement() {
             
             // Sending data to the backend to stop the robot
             fetch(
-                `http://127.0.0.1:8000/ros_api/turn_on`, {
+                turnOn, {
                     method: "POST",
                     body: JSON.stringify("START"),
                     headers: {
@@ -129,7 +132,7 @@ stopButtonStatus()
 // Sends data via API
 function sendDataToAPI(_this) {
     fetch(
-        `http://127.0.0.1:8000/ros_api/send_table`, {
+        sendTable, {
             method: "POST",
             body: JSON.stringify(`${_this}`),
             headers: {
