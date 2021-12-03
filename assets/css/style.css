@@ -57,7 +57,7 @@ body {
 .left-btn {
     width: 40vw;
     background: #3498db;
-    
+
 }
 
 .card {
@@ -204,7 +204,7 @@ body {
     .left-btn span a {
         color: white;
     }
-    
+
     .card {
         width: 31vw;
         height: 35vh;
@@ -276,7 +276,7 @@ body {
         margin-left: 4%;
     }
 
-    
+
     .slider {
         position: absolute;
         cursor: pointer;
@@ -290,7 +290,7 @@ body {
         -webkit-transition: .4s;
         transition: .4s;
     }
-    
+
     .slider:before {
         position: absolute;
         content: "";
@@ -306,20 +306,20 @@ body {
     .hide-checker {
         display: none;
     }
-    
+
     input:checked + .slider {
         background-color: #8dc26f;
     }
-    
+
     input:focus + .slider {
         box-shadow: 0 0 1px #8dc26f;
     }
-    
+
     /* Sets the lenght of translation of the slider*/
     input:checked + .slider:before {
         -webkit-transform: translateX(19vw);
         -ms-transform: translateX(19vw);
-        transform: translateX(19vw); 
+        transform: translateX(19vw);
     }
 
     .mode-card::before {
@@ -337,14 +337,14 @@ body {
         font-weight: 550;
         font-size: 18px;
     }
-    
+
     /* Rounded sliders */
     .slider.round {
         border-radius: 34px;
         margin-top: 8vh;
         margin-left: 2.5vw;
     }
-    
+
     .slider.round:before {
         border-radius: 50%;
         margin-bottom: 1vh;
@@ -595,5 +595,5 @@ body {
     .edit-form-txt {
         margin-left: -2%;
     }
-    
+
 }

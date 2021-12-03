@@ -4,39 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/icofont/icofont.min.css">
-    <title>Robot Controller Frontend</title>
+    <title>Robot Controller Homepage</title>
   </head>
   <body onload="sendDataOnLoad()">
     <nav class="navbar navbar-light" style="background-color: #3498db;">
-      <a class="navbar-brand" href="#">食品注文履歴</a>
+      <a class="navbar-brand" href="#">FAINZY TECHNOLOGIES</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" href="confirm-shutdown.html">shutdown</a>
+            <a class="nav-link" href="home.html">Home | ホーム<span class="sr-only">(current)</span></a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="tables.html">Tables</a>
+            <a class="nav-link" href="confirm-shutdown.html">Reset | リセット</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="setup-page.html">Setup Tables</a>
+            <a class="nav-link" href="tables.html">Tables | テーブル</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="setup-page.html">Setup Tables | セットアップ・テーブル</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="local-setup.html">Local Setup | </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Index Page | インデックス・ページ</a>
           </li>
         </ul>
       </div>
     </nav>
-    
+
     <div class="jumbotron">
       <span class="location-holder">
         <!-- <p>location holder</p> -->
@@ -48,22 +55,22 @@
         <input type="text" name="fname1" class="form-input">
         <input type="submit" value="Change" class="submit-btn">
       </form>
-      
-      <h1 class="display-4">Dispatch Food</h1>
 
-      <button class="begin-btn" style="background: #3498db; box-shadow: 10px 10px rgba(0, 0, 0, 1); margin-top: 3vh;" value="FOOD TAKEN" onclick="sendToBackendRobot(this)"> Food Has Been Taken </button>
-      
-      
+      <!-- <h1 class="display-4">Dispatch Food</h1> -->
+
+      <button class="begin-btn" style="background: #3498db; box-shadow: 10px 10px rgba(0, 0, 0, 1); margin-top: 3vh;" value="FOOD TAKEN" onclick="sendToBackendRobot(this)"> Food Taken | 商品を受け取った　</button>
+
+
       <hr class="my-4">
       <div class="myBtns">
         <a href="tables.html">
           <button class="btn btn-lg lead left-btn">
-            <h4 class="btn-header">ABCD</h4>
-            <span class="btn-txt btn-left-txt">Normal</span>
+            <h4 class="btn-header">SEND | 派遣</h4>
+            <span class="btn-txt btn-left-txt">Tables</span>
           </button>
         </a>
         <button class="btn btn-lg lead right-btn" data-toggle="modal" data-target="#goToKitchenModal">
-          <h4 class="btn-header">Go To</h4>
+          <h4 class="btn-header">GoTo | 行く</h4>
           <span class="btn-txt btn-right-txt">Kitchen</span>
         </button>
       </div>
@@ -75,7 +82,8 @@
         <div class="modal-content">
           <div class="modal-body" id="">
             <h2 style="margin-top: -3vh; margin-bottom: 5vh;">
-              Proceed to Kitchen ?
+              Proceed to Kitchen? <br>
+              キッチンに進む？
             </h2>
             <span>
               <button value="KITCHEN" id="proceed-btn" onclick="turnOff()" style="background: rgba(0, 0, 0, 0); color: white; font-weight: 600; margin-right: 10vw;">
@@ -88,7 +96,7 @@
               No
              </button>
            </span>
-           
+
           </div>
         </div>
       </div>
@@ -126,13 +134,14 @@
 
     <div class="row powerButton" id="power-section">
       <button class="btn btn-lg start-btn btn-state" id="start-btn" data-toggle="modal" data-target="#exampleModal">
-        
+
       </button>
 
       <a href="confirm-shutdown.html">
         <button class="btn btn-lg start-btn power-icon-start">
           <!-- <i class="icofont-power power-font"></i> -->
-          RESET
+          RESET  <br>
+          リセット
         </button>
       </a>
     </div>
@@ -152,6 +161,6 @@
     <script src="assets/jquery/jquery-3.2.1.min.js"></script>
     <script src="assets/jquery/popper.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    
+
   </body>
 </html>

@@ -1,6 +1,3 @@
-const sendTable = `http://127.0.0.1:8000/ros_api/send_table`;
-
-
 // Set cookies to store tables that were selected by the user
 function setCookies(cname, cvalue, exprdays) {
     const d = new Date();
@@ -43,7 +40,7 @@ function stopMultipleTableSelection(_this) {
 function selectedTables() {
     // An empty arry to save the values of the clicked tables
     const valueContainer = [];
-    
+
     // adding an event listener to the pick up the clicks and save the tables clicked on and exclude other buttons
     document.body.addEventListener("click", event=> {
         if (event.target.nodeName == "BUTTON" && event.target.classList == "table-btn btn btn-md") {
@@ -52,10 +49,10 @@ function selectedTables() {
 
             // Calling the function to change the color of the button that is clicked based on the event
             changeButtonColor(event.target);
-            
+
             // Using the set cookie function to create a cookie
             setCookies("selected Tables", valueContainer, 1);
-            
+
             // Disables the button to avoid multiple clicks from the user
             stopMultipleTableSelection(event.target);
 
@@ -71,7 +68,7 @@ function sendTableNextPage() {
     let getBrowserCookie = getCookie("selected Tables");
     const cookieArray = getBrowserCookie.split(",")
     for (let i = 0; i < cookieArray.length; i++) {
-        
+
         // Creating the button element (Parent Node)
         const tableButton = document.createElement("button");
 
@@ -116,14 +113,14 @@ async function InsertTables(url) {
         // Appending the button to the DOM and also assigning values to them
         const element = document.querySelector(".table-keypad");
         element.appendChild(tableButton).setAttribute('value', tableNumber.table_number);
-        
+
     }
     selectedTables()
 
     console.log(data);
 }
 
-InsertTables("http://127.0.0.1:8000/restautant_api/all_tables/");
+InsertTables("http://192.168.22.104:8000/restautant_api/all_tables/");
 
 
 // Removes any stray dynamic button on the confirmation page
@@ -140,10 +137,10 @@ function lockUp() {
 function confirmTable() {
     const data = getCookie("selected Tables")
     const tableData = JSON.stringify(data)
-    
+
     // Send the user's input to the endpoint
     fetch(
-        sendTable, {
+        `http://192.168.22.104:8000/ros_api/send_table`, {
             method: "POST",
             body: tableData,
             headers: {
@@ -172,7 +169,7 @@ function sendKitchenStopStartMessages(_this) {
 
     // Send the user's input to the endpoint
     fetch(
-        sendTable, {
+        `http://192.168.22.104:8000/ros_api/send_table`, {
             method: "POST",
             body: JSON.stringify(`${_this.value}`),
             headers: {
@@ -184,7 +181,7 @@ function sendKitchenStopStartMessages(_this) {
             return response.json();
         }
     })
-    
+
     _this.disabled = true;
 
     _this.style.backgroundColor = "#29ffc6";

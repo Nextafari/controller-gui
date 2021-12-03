@@ -9,32 +9,40 @@
     <link rel="stylesheet" href="assets/icofont/icofont.min.css">
     <title>Setup Page</title>
 </head>
-<body id="" onload="InsertLocation('http://127.0.0.1:8000/ros_api/current-robot-location'); sendDataOnLoad();">
-    <nav class="navbar navbar-light" style="background-color: #3498db;">
-        <a class="navbar-brand" href="#">食品注文履歴</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
-            </li>
+<body id="" onload="InsertLocation('http://192.168.22.104:8000/ros_api/current-robot-location'); sendDataOnLoad();">
+  <nav class="navbar navbar-light" style="background-color: #3498db;">
+    <a class="navbar-brand" href="#">FAINZY TECHNOLOGIES</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="home.html">Home | ホーム<span class="sr-only">(current)</span></a>
+        </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="confirm-shutdown.html">shutdown</a>
-            </li>
+        <li class="nav-item">
+          <a class="nav-link" href="confirm-shutdown.html">Reset | リセット</a>
+        </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="tables.html">Tables</a>
-            </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tables.html">Tables | テーブル</a>
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="setup-page.html">Setup Tables</a>
-            </li>
-          </ul>
-        </div>
-    </nav>
+        <li class="nav-item">
+          <a class="nav-link" href="setup-page.html">Setup Tables | セットアップ・テーブル</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="local-setup.html">Local Setup | </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Index Page | インデックス・ページ</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
     <span class="location-holder" style="color: black;">
        Robot Location: <!-- <p>location holder</p> -->
@@ -58,7 +66,7 @@
             <button class="keypad-header-img save-kitchen setupBtn" value="SETUP TABLES" onclick="sendKitchenStopStartMessages(this)">
                 SETUP TABLES
             </button>
-    
+
             <button class="keypad-header-img save-kitchen setupFldr" value="SETUP DATA FOLDER" onclick="sendKitchenStopStartMessages(this)">
                 SETUP DATA FOLDER
             </button>
@@ -72,28 +80,28 @@
             <i class="icofont-refresh"></i>
         </button>
     </div>
-    
+
     <div class="row keypad-arrangement">
         <div class="container setupTable-keypad">
             <!-- <button class="btn btn-md table-btn">
                 Table 1
             </button> -->
-            
+
             <!-- The buttons are being generated via JS -->
         </div>
     </div>
 
     <div class="row powerButton" id="power-section">
         <button class="btn btn-lg start-btn start-bg btn-state" value="STOP MAPPING" onclick="sendKitchenStopStartMessages(this)">
-            STOP MAPPING
+            STOP MAPPING <br> マップを保存
         </button>
-  
+
         <button class="btn btn-lg start-btn power-icon" value="START MAPPING" onclick="sendKitchenStopStartMessages(this)">
-            START MAPPING
+            START MAPPING <br> マップを作る
         </button>
     </div>
 
-    
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

@@ -1,5 +1,3 @@
-const sendTable = `http://127.0.0.1:8000/ros_api/send_table`;
-
 // Using async function to fetch tables from the backend and display them on the frontend for setup
 async function setupTables(url) {
     const response = await fetch(url);
@@ -26,11 +24,11 @@ async function setupTables(url) {
         const element = document.querySelector(".setupTable-keypad");
         // element.appendChild(tableButton).setAttribute('value', tableNumber.table_number);
         element.appendChild(tableButton);
-        
+
     }
 }
 
-setupTables("http://127.0.0.1:8000/restautant_api/all_tables/");
+setupTables("http://192.168.22.104:8000/restautant_api/all_tables/");
 
 
 // Disable selected buttons
@@ -46,10 +44,10 @@ function robotTableSetup() {
         if (event.target.nodeName == "BUTTON" && event.target.classList == "setupTable-btn btn-md") {
             // Calling the function to change the color of the button that is clicked based on the event
             changeButtonColor(event.target);
-            
+
             // Send the user's input to the endpoint
             fetch(
-                sendTable, {
+                `http://192.168.22.104:8000/ros_api/send_table`, {
                     method: "POST",
                     body: JSON.stringify(event.target.textContent),
                     headers: {
@@ -61,7 +59,7 @@ function robotTableSetup() {
                     return response.json();
                 }
             })
-            
+
             // Disables the button to avoid multiple clicks from the user
             disableSelectedBtns(event.target);
         }
