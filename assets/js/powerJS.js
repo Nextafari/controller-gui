@@ -1,5 +1,7 @@
 const shutDownUrl = `http://127.0.0.1:8000/ros_api/shutdown`;
-const turnOn = `http://127.0.0.1:8000/ros_api/turn_on`;
+const turnOnUrl = `http://127.0.0.1:8000/ros_api/turn_on`;
+const sendTableUrl = `http://127.0.0.1:8000/ros_api/send_table`;
+
 
 // Turns off the Robot on btn click 
 function turnOff() {
@@ -21,23 +23,6 @@ function turnOff() {
     setTimeout(()=> {window.location.replace("home.html");}, 3300);
 }
 
-
-// Turns the robot on by sending a message to it via the backend
-// function startRobot() {
-//     let turnOnBtn = document.querySelector(".start-btn").value;
-//     console.log("This is the turn on butn", turnOnBtn);
-//     fetch(
-//         turnOn, {
-//             method: "POST",
-//             body: JSON.stringify(proceedToShutDown),
-//             headers: {
-//                 "Content-Type": "application/json"
-//             }
-//         }
-//     ).then(response=> {
-//         return response.json();
-//     })
-// }
 
 // Stops and starts the robot's movement
 function startAndStopMovement() {
@@ -61,7 +46,7 @@ function startAndStopMovement() {
 
             // Sending data to the backend to start up the robot
             fetch(
-                turnOn, {
+                turnOnUrl, {
                     method: "POST",
                     body: JSON.stringify("STOP"),
                     headers: {
@@ -83,7 +68,7 @@ function startAndStopMovement() {
             
             // Sending data to the backend to stop the robot
             fetch(
-                turnOn, {
+                turnOnUrl, {
                     method: "POST",
                     body: JSON.stringify("START"),
                     headers: {
@@ -132,7 +117,7 @@ stopButtonStatus()
 // Sends data via API
 function sendDataToAPI(_this) {
     fetch(
-        sendTable, {
+        sendTableUrl, {
             method: "POST",
             body: JSON.stringify(`${_this}`),
             headers: {
@@ -244,5 +229,4 @@ async function sendDataOnLoad() {
 
     sendDataToAPI(`LOCATION ${currentLocation}`);
     return currentLocation;
-    
 }

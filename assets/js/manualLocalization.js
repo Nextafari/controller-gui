@@ -1,5 +1,3 @@
-const sendTable = `http://127.0.0.1:8000/ros_api/send_table`;
-
 // Using async function to fetch tables from the backend and display them on the frontend for setup
 async function setupTables(url) {
     const response = await fetch(url);
@@ -17,7 +15,7 @@ async function setupTables(url) {
         tableButton.classList = "setupTable-btn btn-md";
 
         // Creating a text for the button
-        const btnNode = document.createTextNode("SAVE TABLE " + tableNumber.table_number);
+        const btnNode = document.createTextNode("POSITION " + tableNumber.table_number);
 
         // Appending the text to the button
         tableButton.appendChild(btnNode);
@@ -31,7 +29,6 @@ async function setupTables(url) {
 }
 
 setupTables("http://127.0.0.1:8000/restautant_api/all_tables/");
-
 
 // Disable selected buttons
 function disableSelectedBtns(_this) {
