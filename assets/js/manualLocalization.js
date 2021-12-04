@@ -5,8 +5,6 @@ async function setupTables(url) {
 
     // Looping through data from the endpoint
     for (tableNumber of data) {
-        console.log(tableNumber.table_number);
-
         // creating a new button element
         const tableButton = document.createElement("button");
 

@@ -58,9 +58,6 @@ function selectedTables() {
             
             // Disables the button to avoid multiple clicks from the user
             stopMultipleTableSelection(event.target);
-
-            console.log(valueContainer);
-
         }
     });
 }
@@ -99,8 +96,6 @@ async function InsertTables(url) {
 
     // Looping through data from the endpoint
     for (tableNumber of data) {
-        console.log(tableNumber.table_number);
-
         // creating a new button element
         const tableButton = document.createElement("button");
 
@@ -118,9 +113,7 @@ async function InsertTables(url) {
         element.appendChild(tableButton).setAttribute('value', tableNumber.table_number);
         
     }
-    selectedTables()
-
-    console.log(data);
+    selectedTables();
 }
 
 InsertTables("http://127.0.0.1:8000/restautant_api/all_tables/");

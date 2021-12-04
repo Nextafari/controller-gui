@@ -143,7 +143,6 @@ function sendToBackendRobot(_this) {
 
 
 function hideModal() {
-    // console.log(_this.textContent);
     let modal = document.getElementById("goToKitchenModal");
     modal.hidden = true;
 
@@ -174,8 +173,6 @@ async function InsertLocation(url) {
     // Appending the p element to the DOM
     const element = document.querySelector(".location-holder");
     element.appendChild(locationTxt);
-
-    console.log(data);
 }
 
 InsertLocation(robotCurrentLocation);
@@ -243,7 +240,6 @@ function showRobotActiveJob() {
                 let response = JSON.parse(xhttp.responseText);
                 document.getElementById("current-table").innerHTML = response['location'];
                 document.getElementById("current-table").style.textAlign = 'center';
-                console.log(response.id, response.location);
             }
         } catch (error) {
             alert('Caught Exception: ' + e.description);
