@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/table.css">
     <link rel="stylesheet" href="assets/icofont/icofont.min.css">
-    <title>Tables</title>
+    <title>Manual Localization</title>
 </head>
-<body id="">
+<body id="" onload="InsertLocation('http://192.168.22.104:8000/ros_api/current-robot-location'); sendDataOnLoad();">
   <nav class="navbar navbar-light" style="background-color: #3498db;">
     <a class="navbar-brand" href="#">FAINZY TECHNOLOGIES</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,8 +34,9 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="local-setup.html">Local Setup | </a>
+            <a class="nav-link" href="local-setup.html">Local Setup | </a>
         </li>
+
 
         <li class="nav-item">
           <a class="nav-link" href="index.html">Index Page | インデックス・ページ</a>
@@ -48,6 +49,8 @@
        Robot Location: <!-- <p>location holder</p> -->
     </span>
 
+    <h1 style="color: black; text-align: center; font-weight: 500;">WHERE IS THE ROBOT NOW ?</h1>
+
     <div class="keypad-header">
         <span class="keypad-header-txt">
             <p>
@@ -56,20 +59,17 @@
             </p>
         </span>
 
-        <span class="keypad-header-img">
-            <a href="confirm-tables.html">
-                <img src="assets/imgs/okay_tick.svg" alt="image">
-            </a>
-        </span>
+        <button class="keypad-header-img save-kitchen" value="SAVE KITCHEN" onclick="sendKitchenStopStartMessages(this)">
+            SAVE AS KITCHEN
+        </button>
 
         <button class="refresh-btn" onclick="window.location.reload()">
-            <!-- <img src="assets/imgs/transparent-refresh.png" alt="image"> -->
             <i class="icofont-refresh"></i>
         </button>
     </div>
 
     <div class="row keypad-arrangement">
-        <div class="container table-keypad">
+        <div class="container setupTable-keypad">
             <!-- <button class="btn btn-md table-btn">
                 Table 1
             </button> -->
@@ -106,6 +106,7 @@
 
 
     <script src="assets/js/powerJS.js"></script>
+    <script src="assets/js/manualLocalization.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/jquery/jquery-3.2.1.min.js"></script>
     <script src="assets/jquery/popper.min.js"></script>

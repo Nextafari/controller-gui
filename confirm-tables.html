@@ -10,31 +10,39 @@
     <title>Tables</title>
 </head>
 <body id="body-img"  onload="sendTableNextPage()">
-    <nav class="navbar navbar-light" style="background-color: #3498db;">
-        <a class="navbar-brand" href="#">食品注文履歴</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
-            </li>
+  <nav class="navbar navbar-light" style="background-color: #3498db;">
+    <a class="navbar-brand" href="#">FAINZY TECHNOLOGIES</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="home.html">Home | ホーム<span class="sr-only">(current)</span></a>
+        </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="confirm-shutdown.html">shutdown</a>
-            </li>
+        <li class="nav-item">
+          <a class="nav-link" href="confirm-shutdown.html">Reset | リセット</a>
+        </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="tables.html">Tables</a>
-            </li>
+        <li class="nav-item">
+          <a class="nav-link" href="tables.html">Tables | テーブル</a>
+        </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="setup-page.html">Setup Tables</a>
-            </li>
-          </ul>
-        </div>
-    </nav>
+        <li class="nav-item">
+          <a class="nav-link" href="setup-page.html">Setup Tables | セットアップ・テーブル</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="local-setup.html">Local Setup | </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Index Page | インデックス・ページ</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
     <span class="location-holder" style="color: white;">
        Robot Location: <!-- <p>location holder</p> -->
@@ -55,30 +63,35 @@
             </a>
         </span>
     </div>
-    
+
     <div class="row keypad-arrangement">
         <div class="container confirm-table-keypad">
             <!-- <button class="btn btn-md table-btn">
                 Table 1
             </button> -->
             <!-- Buttons are dynamically generated -->
-            
+
         </div>
 
         <div>
             <button class="btn btn-lg confirm-btn" data-toggle="modal" data-target="#exampleModal" onclick="confirmTable()">
-                CONFIRM
+                CONFIRM <br> 決定
             </button>
         </div>
     </div>
-    
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     Table requests received!!! <br>
-                    Robot going to deliver <i class="icofont-simple-smile" style="background: ffb703;"></i>
+                    Robot going to deliver
+                    <br>　
+                    <br>
+                    配信リクエスト受付中!!!　<br>
+                    配達に行ってきます　<br> <br>
+                    <i class="icofont-simple-smile" style="background: ffb703;"></i>
                 </div>
             </div>
         </div>
@@ -88,16 +101,16 @@
         <button class="btn btn-lg start-btn start-bg btn-state" id="start-btn" data-toggle="modal" data-target="#powerModal">
             STOP
         </button>
-  
+
         <a href="confirm-shutdown.html">
             <button class="btn btn-lg start-btn power-icon">
                 <!-- <i class="icofont-power power-font"></i> -->
-                RESET
+                RESET <br> リセット
             </button>
         </a>
     </div>
 
-    
+
     <!-- Modal -->
     <div class="modal fade" id="powerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
