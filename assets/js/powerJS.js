@@ -1,6 +1,8 @@
 const shutDownUrl = `http://127.0.0.1:8000/ros_api/shutdown`;
 const turnOnUrl = `http://127.0.0.1:8000/ros_api/turn_on`;
 const sendTableUrl = `http://127.0.0.1:8000/ros_api/send_table`;
+const robotCurrentLocation = "http://127.0.0.1:8000/ros_api/current-robot-location";
+// const whereIsRobotNow = ;
 
 
 // Turns off the Robot on btn click 
@@ -176,7 +178,7 @@ async function InsertLocation(url) {
     console.log(data);
 }
 
-InsertLocation("http://127.0.0.1:8000/ros_api/current-robot-location");
+InsertLocation(robotCurrentLocation);
 
 
 // Edits the current location of the restaurant
@@ -220,7 +222,7 @@ function sendEditedLocation() {
 
 
 async function sendDataOnLoad() {
-    let url = "http://127.0.0.1:8000/ros_api/current-robot-location";
+    let url = robotCurrentLocation;
     const response = await fetch(url);
 
     const data = await response.json();
@@ -247,7 +249,7 @@ function showRobotActiveJob() {
             alert('Caught Exception: ' + e.description);
         }
     }
-    xhttp.open("GET", "http://127.0.0.1:8000/ros_api/current-robot-location", true);
+    xhttp.open("GET", robotCurrentLocation, true);
     xhttp.send();
 }
 
