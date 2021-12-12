@@ -3,6 +3,7 @@ const turnOnUrl = `http://127.0.0.1:8000/ros_api/turn_on`;
 const sendTableUrl = `http://127.0.0.1:8000/ros_api/send_table`;
 const robotCurrentLocation = "http://127.0.0.1:8000/ros_api/current-robot-location";
 const robotDestionation = "http://127.0.0.1:8000/ros_api/chat/robot_message/";
+const robotNextLocation = "http://127.0.0.1:8000/ros_api/get-robot-message/2/";
 
 
 // Turns off the Robot on btn click 
@@ -232,20 +233,15 @@ async function sendDataOnLoad() {
 
 
 // displays the current table the robot goes to using ajax
-function showRobotActiveJob() {
-    // initializing a new connection the websocket.
-    const recvMsg = new WebSocket("ws://127.0.0.1:8000/ws/chat/robot_message/");
-    recvMsg.onmessage = (e) => {
-        // converting websocket data to JSON
-        let msgData = JSON.parse(e.data);
-        document.getElementById("currentTable").textContent = msgData.message;
-        document.getElementById("currentTable").style.textAlign = "center";
-        document.getElementById("currentTable").style.fontWeight = "700";
-        document.getElementById("currentTable").style.fontSize = "26px";
-
-        // close connection
-        recvMsg.close();
-    }
+async function showRobotActiveJob() {
+    const url = robotNextLocation;
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data)
+    document.getElementById("currentTable").textContent = data;
+    document.getElementById("currentTable").style.textAlign = "center";
+    document.getElementById("currentTable").style.fontWeight = "700";
+    document.getElementById("currentTable").style.fontSize = "26px";
 }
 
-setInterval(showRobotActiveJob, 3000);
+setInterval(showRobotActiveJob, 5000);
