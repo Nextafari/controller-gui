@@ -1,4 +1,4 @@
-const sendTable = `http://127.0.0.1:8000/ros_api/send_table`;
+const sendTable = `http://127.0.0.1:8000/ros_api/frontend_msgs`;
 
 // Using async function to fetch tables from the backend and display them on the frontend for setup
 async function setupTables(url) {

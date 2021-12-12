@@ -1,3 +1,5 @@
+const sendTable = `http://127.0.0.1:8000/ros_api/frontend_msgs`;
+
 // Using async function to fetch tables from the backend and display them on the frontend for setup
 async function setupTables(url) {
     const response = await fetch(url);
@@ -40,7 +42,7 @@ function changeButtonColor(_this) {
 
 
 // Sends data to the backend as soon as user clicks
-function robotTableSetup() {
+function recallRobotManually() {
     // adding an event listener to the pick up the setup buttons clicked on and exclude other buttons
     document.body.addEventListener("click", event=> {
         if (event.target.nodeName == "BUTTON" && event.target.classList == "setupTable-btn btn-md") {
@@ -68,4 +70,4 @@ function robotTableSetup() {
     });
 }
 
-robotTableSetup()
+recallRobotManually();

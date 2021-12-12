@@ -1,4 +1,4 @@
-const newTableUrl = `http://127.0.0.1:8000/ros_api/send_table`;
+const newTableUrl = `http://127.0.0.1:8000/ros_api/frontend_msgs`;
 
 
 // Set cookies to store tables that were selected by the user
