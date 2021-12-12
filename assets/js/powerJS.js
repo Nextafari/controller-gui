@@ -1,6 +1,4 @@
-const shutDownUrl = `http://127.0.0.1:8000/ros_api/frontend_msgs`;
-const turnOnUrl = `http://127.0.0.1:8000/ros_api/frontend_msgs`;
-const sendTableUrl = `http://127.0.0.1:8000/ros_api/frontend_msgs`;
+const webSocUrl = `http://127.0.0.1:8000/ros_api/frontend_msgs`;
 const robotCurrentLocation = "http://127.0.0.1:8000/ros_api/current-robot-location";
 const robotDestionation = "http://127.0.0.1:8000/ros_api/chat/robot_message/";
 const robotNextLocation = "http://127.0.0.1:8000/ros_api/get-robot-message/2/";
@@ -11,7 +9,7 @@ function turnOff() {
     let proceedToShutDown = document.getElementById("proceed-btn").value;
 
     fetch(
-    shutDownUrl, {
+    webSocUrl, {
             method: "POST",
             body: JSON.stringify(proceedToShutDown),
             headers: {
@@ -49,7 +47,7 @@ function startAndStopMovement() {
 
             // Sending data to the backend to start up the robot
             fetch(
-                turnOnUrl, {
+                webSocUrl, {
                     method: "POST",
                     body: JSON.stringify("STOP"),
                     headers: {
@@ -71,7 +69,7 @@ function startAndStopMovement() {
             
             // Sending data to the backend to stop the robot
             fetch(
-                turnOnUrl, {
+                webSocUrl, {
                     method: "POST",
                     body: JSON.stringify("START"),
                     headers: {
@@ -120,7 +118,7 @@ stopButtonStatus()
 // Sends data via API
 function sendDataToAPI(_this) {
     fetch(
-        sendTableUrl, {
+        webSocUrl, {
             method: "POST",
             body: JSON.stringify(`${_this}`),
             headers: {
