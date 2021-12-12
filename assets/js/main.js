@@ -136,7 +136,7 @@ function confirmTable() {
     
     // Send the user's input to the endpoint
     fetch(
-        sendTable, {
+        newTableUrl, {
             method: "POST",
             body: tableData,
             headers: {
