@@ -1,7 +1,7 @@
 const webSocUrl = `http://127.0.0.1:8000/ros_api/frontend_msgs`;
 const robotCurrentLocation = "http://127.0.0.1:8000/ros_api/current-robot-location";
 const robotDestionation = "http://127.0.0.1:8000/ros_api/chat/robot_message/";
-const robotNextLocation = "http://127.0.0.1:8000/ros_api/get-robot-message/2/";
+const robotNextLocation = "http://127.0.0.1:8000/ros_api/get-robot-message/1/";
 
 
 // Turns off the Robot on btn click 
@@ -240,6 +240,7 @@ async function showRobotActiveJob() {
     document.getElementById("currentTable").style.textAlign = "center";
     document.getElementById("currentTable").style.fontWeight = "700";
     document.getElementById("currentTable").style.fontSize = "26px";
+    document.getElementById("currentTable").style.fontFamily = "Roboto";
 }
 
 setInterval(showRobotActiveJob, 5000);
