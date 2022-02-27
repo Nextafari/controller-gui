@@ -1,4 +1,4 @@
-const newTableUrl = `http://127.0.0.1:8000/ros_api/frontend_msgs`;
+const newTableUrl = `https://ikenga-robotics.herokuapp.com/ros_api/frontend_msgs`;
 
 
 // Set cookies to store tables that were selected by the user
@@ -116,7 +116,7 @@ async function InsertTables(url) {
     selectedTables();
 }
 
-InsertTables("http://127.0.0.1:8000/restautant_api/all_tables/");
+InsertTables("https://ikenga-robotics.herokuapp.com/restautant_api/all_tables/");
 
 
 // Removes any stray dynamic button on the confirmation page

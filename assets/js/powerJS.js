@@ -1,7 +1,7 @@
-const webSocUrl = `http://127.0.0.1:8000/ros_api/frontend_msgs`;
-const robotCurrentLocation = "http://127.0.0.1:8000/ros_api/current-robot-location";
-const robotDestionation = "http://127.0.0.1:8000/ros_api/chat/robot_message/";
-const robotNextLocation = "http://127.0.0.1:8000/ros_api/get-robot-message/1/";
+const webSocUrl = `https://ikenga-robotics.herokuapp.com/ros_api/frontend_msgs`;
+const robotCurrentLocation = "https://ikenga-robotics.herokuapp.com/ros_api/current-robot-location";
+const robotDestionation = "https://ikenga-robotics.herokuapp.com/ros_api/chat/robot_message/";
+const robotNextLocation = "https://ikenga-robotics.herokuapp.com/ros_api/get-robot-message/1/";
 
 
 // Turns off the Robot on btn click 
@@ -192,7 +192,7 @@ function sendEditedLocation() {
         return false;
     }else {
         // Using the fetch method to send user data to the backend db
-        fetch(`http://127.0.0.1:8000/ros_api/edit-current-robot-location/1/`, {
+        fetch(`https://ikenga-robotics.herokuapp.com/ros_api/edit-current-robot-location/1/`, {
                 method: "PATCH",
                 body: JSON.stringify(
                     {
@@ -230,7 +230,7 @@ async function sendDataOnLoad() {
 }
 
 
-// displays the current table the robot goes to using ajax
+// displays the current table the robot goes to.
 async function showRobotActiveJob() {
     const url = robotNextLocation;
     const response = await fetch(url);
@@ -243,4 +243,4 @@ async function showRobotActiveJob() {
     document.getElementById("currentTable").style.fontFamily = "Roboto";
 }
 
-setInterval(showRobotActiveJob, 5000);
+// setInterval(showRobotActiveJob, 5000);

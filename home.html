@@ -157,6 +157,24 @@
         </div>
       </div>
     </div>
+
+
+
+    <!-- <script>
+      function sendMsgWithWebSocket(__this) {
+        let url = "ws://127.0.0.1:8000/ros_api/chat/test_message/"
+        let msg = __this.value
+        const webSocket = new WebSocket(url)
+
+        webSocket.onopen = () => {
+          webSocket.send(JSON.stringify(msg));
+        };
+        // webSocket.close();
+        console.log("It is I",msg)
+
+      }
+    </script> -->
+
     
     <script src="assets/js/powerJS.js"></script>
     <script src="assets/jquery/jquery-3.2.1.min.js"></script>
