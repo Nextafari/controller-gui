@@ -115,21 +115,19 @@ function stopButtonStatus() {
 stopButtonStatus()
 
 
-// Sends data via API
-function sendDataToAPI(_this) {
-    fetch(
-        webSocUrl, {
-            method: "POST",
-            body: JSON.stringify(`${_this}`),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }
-    ).then(response => {
-        if (!response.ok) {
-            return response.json();
-        }
-    })
+
+// Send message via WS and not Http
+function sendDataToAPI(__this) {
+    let url = "ws://localhost:8000/ws/chat/test_message/"
+    let msg = {message: __this.value}
+    const webSocket = new WebSocket(url)
+
+    webSocket.onopen = () => {
+      webSocket.send(JSON.stringify(msg));
+    };
+    // webSocket.close();
+    console.log("It is I",msg, webSocket)
+
 }
 
 
