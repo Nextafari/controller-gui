@@ -58,7 +58,7 @@
 
       <!-- <h1 class="display-4">Dispatch Food</h1> -->
 
-      <button class="begin-btn" style="background: #3498db; box-shadow: 10px 10px rgba(0, 0, 0, 1); margin-top: 3vh;" value="FOOD TAKEN" onclick="sendToBackendRobot(this);"
+      <button class="begin-btn" style="background: #3498db; box-shadow: 10px 10px rgba(0, 0, 0, 1); margin-top: 3vh;" value="FOOD TAKEN" onclick="sendToBackendRobot(this)"
       > 
         Food Taken | 商品を受け取った　
       </button>
@@ -166,7 +166,7 @@
     <!-- <script>
       // Send message via WS and not Http works
       function sendMsgWithWebSocket(__this) {
-        let url = "ws://localhost:8000/ws/chat/test_message/"
+        let url = "ws://localhost:8000/ws/chat/ros_message/"
         let msg = {message: __this.value}
         const webSocket = new WebSocket(url)
 
