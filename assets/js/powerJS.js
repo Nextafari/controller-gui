@@ -1,8 +1,7 @@
-const shutDownUrl = `http://127.0.0.1:8000/ros_api/shutdown`;
-const turnOnUrl = `http://127.0.0.1:8000/ros_api/turn_on`;
-const sendTableUrl = `http://127.0.0.1:8000/ros_api/send_table`;
-const robotCurrentLocation = "http://127.0.0.1:8000/ros_api/current-robot-location";
-const robotDestionation = "http://127.0.0.1:8000/ros_api/chat/robot_message/";
+const webSocUrl = `https://ikenga-robotics.herokuapp.com/ros_api/frontend_msgs`;
+const robotCurrentLocation = "https://ikenga-robotics.herokuapp.com/ros_api/current-robot-location";
+const robotDestionation = "https://ikenga-robotics.herokuapp.com/ros_api/chat/robot_message/";
+const robotNextLocation = "https://ikenga-robotics.herokuapp.com/ros_api/get-robot-message/1/";
 
 
 // Turns off the Robot on btn click 
@@ -10,7 +9,7 @@ function turnOff() {
     let proceedToShutDown = document.getElementById("proceed-btn").value;
 
     fetch(
-    shutDownUrl, {
+    webSocUrl, {
             method: "POST",
             body: JSON.stringify(proceedToShutDown),
             headers: {
@@ -48,7 +47,7 @@ function startAndStopMovement() {
 
             // Sending data to the backend to start up the robot
             fetch(
-                turnOnUrl, {
+                webSocUrl, {
                     method: "POST",
                     body: JSON.stringify("STOP"),
                     headers: {
@@ -70,7 +69,7 @@ function startAndStopMovement() {
             
             // Sending data to the backend to stop the robot
             fetch(
-                turnOnUrl, {
+                webSocUrl, {
                     method: "POST",
                     body: JSON.stringify("START"),
                     headers: {
@@ -117,21 +116,34 @@ stopButtonStatus()
 
 
 // Sends data via API
-function sendDataToAPI(_this) {
-    fetch(
-        sendTableUrl, {
-            method: "POST",
-            body: JSON.stringify(`${_this}`),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }
-    ).then(response => {
-        if (!response.ok) {
-            return response.json();
-        }
-    })
-}
+// function sendDataToAPI(_this) {
+//     fetch(
+//         webSocUrl, {
+//             method: "POST",
+//             body: JSON.stringify(`${_this}`),
+//             headers: {
+//                 "Content-Type": "application/json"
+//             }
+//         }
+//     ).then(response => {
+//         if (!response.ok) {
+//             return response.json();
+//         }
+//     })
+// }
+
+
+// Send message via WS and not Http
+function sendDataToAPI(__this) {
+    let url = "ws://localhost:8000/ws/chat/ros_message/"
+    let msg = {message: __this}
+    const webSocket = new WebSocket(url)
+
+    webSocket.onopen = () => {
+      webSocket.send(JSON.stringify(msg));
+    };
+    // webSocket.close();
+  }
 
 
 // Just sends stuff to the backend and to the robot
@@ -193,7 +205,7 @@ function sendEditedLocation() {
         return false;
     }else {
         // Using the fetch method to send user data to the backend db
-        fetch(`http://127.0.0.1:8000/ros_api/edit-current-robot-location/1/`, {
+        fetch(`https://ikenga-robotics.herokuapp.com/ros_api/edit-current-robot-location/1/`, {
                 method: "PATCH",
                 body: JSON.stringify(
                     {
@@ -231,21 +243,17 @@ async function sendDataOnLoad() {
 }
 
 
-// displays the current table the robot goes to using ajax
-function showRobotActiveJob() {
-    // initializing a new connection the websocket.
-    const recvMsg = new WebSocket("ws://127.0.0.1:8000/ws/chat/robot_message/");
-    recvMsg.onmessage = (e) => {
-        // converting websocket data to JSON
-        let msgData = JSON.parse(e.data);
-        document.getElementById("currentTable").textContent = msgData.message;
-        document.getElementById("currentTable").style.textAlign = "center";
-        document.getElementById("currentTable").style.fontWeight = "700";
-        document.getElementById("currentTable").style.fontSize = "26px";
-
-        // close connection
-        recvMsg.close();
-    }
+// displays the current table the robot goes to.
+async function showRobotActiveJob() {
+    const url = robotNextLocation;
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data)
+    document.getElementById("currentTable").textContent = data;
+    document.getElementById("currentTable").style.textAlign = "center";
+    document.getElementById("currentTable").style.fontWeight = "700";
+    document.getElementById("currentTable").style.fontSize = "26px";
+    document.getElementById("currentTable").style.fontFamily = "Roboto";
 }
 
-setInterval(showRobotActiveJob, 3000);
+// setInterval(showRobotActiveJob, 5000);

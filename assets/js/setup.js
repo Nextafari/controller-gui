@@ -1,4 +1,4 @@
-const sendTable = `http://127.0.0.1:8000/ros_api/send_table`;
+const sendTable = `https://ikenga-robotics.herokuapp.com/ros_api/frontend_msgs`;
 
 // Using async function to fetch tables from the backend and display them on the frontend for setup
 async function setupTables(url) {
@@ -28,7 +28,7 @@ async function setupTables(url) {
     }
 }
 
-setupTables("http://127.0.0.1:8000/restautant_api/all_tables/");
+setupTables("https://ikenga-robotics.herokuapp.com/restautant_api/all_tables/");
 
 
 // Disable selected buttons

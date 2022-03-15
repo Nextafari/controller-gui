@@ -1,3 +1,5 @@
+const sendPosition = `https://ikenga-robotics.herokuapp.com/ros_api/frontend_msgs`;
+
 // Using async function to fetch tables from the backend and display them on the frontend for setup
 async function setupTables(url) {
     const response = await fetch(url);
@@ -25,7 +27,7 @@ async function setupTables(url) {
     }
 }
 
-setupTables("http://127.0.0.1:8000/restautant_api/all_tables/");
+setupTables("https://ikenga-robotics.herokuapp.com/restautant_api/all_tables/");
 
 // Disable selected buttons
 function disableSelectedBtns(_this) {
@@ -40,7 +42,7 @@ function changeButtonColor(_this) {
 
 
 // Sends data to the backend as soon as user clicks
-function robotTableSetup() {
+function recallRobotManually() {
     // adding an event listener to the pick up the setup buttons clicked on and exclude other buttons
     document.body.addEventListener("click", event=> {
         if (event.target.nodeName == "BUTTON" && event.target.classList == "setupTable-btn btn-md") {
@@ -49,7 +51,7 @@ function robotTableSetup() {
             
             // Send the user's input to the endpoint
             fetch(
-                sendTable, {
+                sendPosition, {
                     method: "POST",
                     body: JSON.stringify(event.target.textContent),
                     headers: {
@@ -68,4 +70,4 @@ function robotTableSetup() {
     });
 }
 
-robotTableSetup()
+recallRobotManually();
